@@ -4,14 +4,22 @@ c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../.
                               build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o (__pic32c_data_initialization)
 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
                               c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o) (__pic32c_data_initialization_impl)
+c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fadd.o)
+                              build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o (__aeabi_fadd)
 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_dadd.o)
                               build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o (__aeabi_dadd)
+c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fsub.o)
+                              build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o (__aeabi_fsub)
 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_dsub.o)
                               build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o (__aeabi_dsub)
+c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fmul.o)
+                              build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o (__aeabi_fmul)
 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_dmul_aux.o)
                               build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o (__aeabi_dmul)
 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fdiv.o)
                               build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o (__aeabi_fdiv)
+c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_f2uiz.o)
+                              build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o (__aeabi_f2uiz)
 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_d2uiz.o)
                               build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o (__aeabi_d2uiz)
 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_ui2f.o)
@@ -36,37 +44,38 @@ section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
 .vectors                         0           0xf4         244   
 .text                         0xf4           0x20          32  App's exec code 
-.text.SERCOM0_I2C_Inter      0x114          0x290         656   
-.text.main                   0x3a4          0x148         328   
-.text.CLOCK_Initialize       0x4ec           0xf0         240   
-.text.SERCOM0_I2C_Initi      0x5dc           0x8c         140   
-.text.Reset_Handler          0x668           0x7c         124   
-.text.SERCOM0_I2C_Initi      0x6e4           0x74         116   
-.text.__pic32c_data_ini      0x758           0x70         112   
-.dinit                       0x7c8           0x70         112   
-.text.NVIC_Initialize        0x838           0x6c         108   
-.text.__libc_start_init      0x8a4           0x5c          92   
-.text                        0x900           0x40          64  App's exec code 
-.text.SERCOM0_I2C_Write      0x940           0x40          64   
-.text.SERCOM0_I2C_Write      0x980           0x3e          62   
-.text.SYS_Initialize         0x9be           0x2c          44   
-.text.PM_Initialize          0x9ea           0x28          40   
-.text.EVSYS_Initialize       0xa12            0x2           2   
-.rodata.main                 0xa14           0x28          40   
-.text.PORT_Initialize        0xa3c           0x26          38   
-.text.APP_I2CCallback        0xa62           0x1c          28   
-.text.memcmp                 0xa7e           0x1c          28   
-.text.NVMCTRL_Initializ      0xa9a           0x12          18   
-.text.SERCOM0_I2C_Error      0xaac           0x10          16   
-.text.SERCOM0_I2C_Callb      0xabc            0xe          14   
-.text.__pic32c_data_ini      0xaca            0x8           8   
-.text.Dummy_Handler          0xad2            0x2           2   
-.text.NonMaskableInt_Ha      0xad4            0x2           2   
-.text.HardFault_Handler      0xad6            0x2           2   
-.text.__dummy                0xad8            0x2           2   
-      Total ROM used  :       0xada        2778  4.2% of 0x10000
+.text.SERCOM1_I2C_Inter      0x114          0x2ac         684   
+.text.main                   0x3c0          0x148         328   
+.text.CLOCK_Initialize       0x508           0xf0         240   
+.text.SERCOM1_I2C_Initi      0x5f8           0x8c         140   
+.text.SERCOM1_I2C_Initi      0x684           0x74         116   
+.text.__pic32c_data_ini      0x6f8           0x70         112   
+.dinit                       0x768           0x70         112   
+.text.NVIC_Initialize        0x7d8           0x6c         108   
+.text.__libc_start_init      0x844           0x5c          92   
+.text.Reset_Handler          0x8a0           0x54          84   
+.text                        0x8f4           0x40          64  App's exec code 
+.text.SERCOM1_I2C_Write      0x934           0x40          64   
+.text.SERCOM1_I2C_Write      0x974           0x3e          62   
+.text.PM_Initialize          0x9b2           0x3a          58   
+.text.PORT_Initialize        0x9ec           0x34          52   
+.text.SYS_Initialize         0xa20           0x2c          44   
+.rodata.main                 0xa4c           0x28          40   
+.text.APP_I2CCallback        0xa74           0x1c          28   
+.text.memcmp                 0xa90           0x1c          28   
+.text.NVMCTRL_Initializ      0xaac           0x12          18   
+.text.SERCOM1_I2C_Error      0xabe           0x10          16   
+.text.SERCOM1_I2C_Callb      0xace            0xe          14   
+.text.__pic32c_data_ini      0xadc            0x8           8   
+.text.EVSYS_Initialize       0xae4            0x2           2   
+.text.Dummy_Handler          0xae6            0x2           2   
+.text.NonMaskableInt_Ha      0xae8            0x2           2   
+.text.HardFault_Handler      0xaea            0x2           2   
+.text.Dummy_App_Func         0xaec            0x2           2   
+.text.__dummy                0xaee            0x2           2   
+      Total ROM used  :       0xaf0        2800  4.3% of 0x10000
         --------------------------------------------------------------------------
-         Total Program Memory used  :       0xada        2778  4.2% of 0x10000
+         Total Program Memory used  :       0xaf0        2800  4.3% of 0x10000
         --------------------------------------------------------------------------
 
 
@@ -74,7 +83,7 @@ RAM Data-Memory Usage
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
 .bss                    0x20000000           0x50          80  Uninitialized data 
-.bss.sercom0I2CObj      0x20000050           0x2c          44   
+.bss.sercom1I2CObj      0x20000050           0x2c          44   
 .bss                    0x2000007c           0x1c          28  Uninitialized data 
 .bss.testRxData         0x20000098            0x4           4   
 .bss                    0x2000009c            0x8           8  Uninitialized data 
@@ -116,6 +125,12 @@ Discarded input sections
  .text          0x00000000        0x0 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
  .data          0x00000000        0x0 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
  .bss           0x00000000        0x0 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
+ .text.NVIC_INT_Enable
+                0x00000000        0x8 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
+ .text.NVIC_INT_Disable
+                0x00000000       0x12 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
+ .text.NVIC_INT_Restore
+                0x00000000       0x12 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
  .text          0x00000000        0x0 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
  .data          0x00000000        0x0 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
  .bss           0x00000000        0x0 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
@@ -124,16 +139,32 @@ Discarded input sections
  .text.NVMCTRL_Read
                 0x00000000       0x10 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
  .text.NVMCTRL_PageWrite
-                0x00000000       0x50 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+                0x00000000       0x4c build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
  .text.NVMCTRL_RowErase
                 0x00000000       0x38 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .text.NVMCTRL_PageBufferWrite
+                0x00000000       0x42 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .text.NVMCTRL_PageBufferCommit
+                0x00000000       0x1c build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .text.NVMCTRL_USER_ROW_PageWrite
+                0x00000000       0x1e build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .text.NVMCTRL_USER_ROW_RowErase
+                0x00000000       0x22 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .text.NVMCTRL_BOCOR_ROW_PageWrite
+                0x00000000       0x1e build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .text.NVMCTRL_BOCOR_ROW_RowErase
+                0x00000000       0x22 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
  .text.NVMCTRL_ErrorGet
-                0x00000000       0x10 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+                0x00000000       0x28 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
  .text.NVMCTRL_IsBusy
                 0x00000000       0x16 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
  .text.NVMCTRL_RegionLock
                 0x00000000       0x16 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
  .text.NVMCTRL_RegionUnlock
+                0x00000000       0x16 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .text.NVMCTRL_SecureRegionLock
+                0x00000000       0x16 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .text.NVMCTRL_SecureRegionUnlock
                 0x00000000       0x16 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
  .text          0x00000000        0x0 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
  .data          0x00000000        0x0 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
@@ -165,29 +196,59 @@ Discarded input sections
                 0x00000000        0x4 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
  .text.PORT_GroupOutputEnable
                 0x00000000        0x4 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
+ .text.PORT_PinPeripheralFunctionConfig
+                0x00000000       0x48 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
+ .text.PORT_PinGPIOConfig
+                0x00000000       0x20 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
  .text          0x00000000        0x0 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
  .data          0x00000000        0x0 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
  .bss           0x00000000        0x0 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .text.SERCOM0_I2C_InitiateTransfer
+                0x00000000       0x74 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .text.SERCOM0_I2C_Initialize
+                0x00000000       0x8c build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
  .text.SERCOM0_I2C_TransferSetup
                 0x00000000      0x148 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .text.SERCOM0_I2C_CallbackRegister
+                0x00000000        0xe build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
  .text.SERCOM0_I2C_Read
+                0x00000000       0x40 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .text.SERCOM0_I2C_Write
+                0x00000000       0x3e build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .text.SERCOM0_I2C_WriteRead
                 0x00000000       0x40 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
  .text.SERCOM0_I2C_IsBusy
                 0x00000000       0x2a build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .text.SERCOM0_I2C_ErrorGet
+                0x00000000       0x10 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .text.SERCOM0_I2C_InterruptHandler
+                0x00000000      0x290 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .bss.sercom0I2CObj
+                0x00000000       0x2c build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .debug_info    0x00000000     0x1725 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .debug_abbrev  0x00000000      0x37c build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .debug_loc     0x00000000      0x8ca build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .debug_aranges
+                0x00000000       0x68 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .debug_ranges  0x00000000       0xd0 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .debug_line    0x00000000      0x774 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .debug_str     0x00000000      0x167 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .comment       0x00000000       0x2c build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .debug_frame   0x00000000       0xf0 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .ARM.attributes
+                0x00000000       0x30 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
  .text          0x00000000        0x0 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
  .data          0x00000000        0x0 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
  .bss           0x00000000        0x0 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
- .text._mon_getc
-                0x00000000        0x4 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
- .text._mon_putc
-                0x00000000        0x2 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
- .debug_info    0x00000000      0x251 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
- .debug_abbrev  0x00000000       0x80 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
- .debug_loc     0x00000000       0x25 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
+ .text.read     0x00000000        0x6 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
+ .text.write    0x00000000        0x6 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
+ .debug_info    0x00000000      0x2d4 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
+ .debug_abbrev  0x00000000       0x96 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
+ .debug_loc     0x00000000       0x4a build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
  .debug_aranges
                 0x00000000       0x28 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
  .debug_ranges  0x00000000       0x18 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
- .debug_line    0x00000000       0x7b build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
+ .debug_line    0x00000000       0xd3 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
  .debug_str     0x00000000        0x0 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
  .comment       0x00000000       0x2c build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
  .debug_frame   0x00000000       0x30 build/sam_l10_xpro/production/_ext/1911983158/xc32_monitor.o
@@ -202,14 +263,6 @@ Discarded input sections
  .text          0x00000000        0x0 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
  .data          0x00000000        0x0 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
  .bss           0x00000000        0x0 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
- .text.DebugMonitor_Handler
-                0x00000000        0x2 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
- .text.MemoryManagement_Handler
-                0x00000000        0x2 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
- .text.BusFault_Handler
-                0x00000000        0x2 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
- .text.UsageFault_Handler
-                0x00000000        0x2 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
  .text          0x00000000        0x0 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
  .data          0x00000000        0x0 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
  .bss           0x00000000        0x0 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
@@ -232,6 +285,17 @@ Discarded input sections
  .text          0x00000000        0x0 build/sam_l10_xpro/production/_ext/1360937237/main.o
  .data          0x00000000        0x0 build/sam_l10_xpro/production/_ext/1360937237/main.o
  .bss           0x00000000        0x0 build/sam_l10_xpro/production/_ext/1360937237/main.o
+ .text          0x00000000        0x0 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .data          0x00000000        0x0 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .bss           0x00000000        0x0 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .text.SERCOM1_I2C_TransferSetup
+                0x00000000      0x130 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .text.SERCOM1_I2C_Read
+                0x00000000       0x40 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .text.SERCOM1_I2C_IsBusy
+                0x00000000       0x28 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .text.SERCOM1_I2C_TransferAbort
+                0x00000000       0x68 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
  .text          0x00000000        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
  .data          0x00000000        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
  .bss           0x00000000        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
@@ -246,6 +310,14 @@ Discarded input sections
  .xc_stack_usage.hdr
                 0x00000000        0xe c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
  .ARM.attributes
+                0x00000000       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fadd.o)
+ .text.__aeabi_fadd
+                0x00000000      0x136 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fadd.o)
+ .xc_stack_usage.hdr
+                0x00000000        0xe c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fadd.o)
+ .xc_stack_usage
+                0x00000000       0x41 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fadd.o)
+ .ARM.attributes
                 0x00000000       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_dadd.o)
  .text.__aeabi_dadd
                 0x00000000      0x1c8 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_dadd.o)
@@ -254,6 +326,14 @@ Discarded input sections
  .xc_stack_usage
                 0x00000000       0x41 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_dadd.o)
  .ARM.attributes
+                0x00000000       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fsub.o)
+ .text.__aeabi_fsub
+                0x00000000       0x10 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fsub.o)
+ .xc_stack_usage.hdr
+                0x00000000        0xe c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fsub.o)
+ .xc_stack_usage
+                0x00000000       0x1a c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fsub.o)
+ .ARM.attributes
                 0x00000000       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_dsub.o)
  .text.__aeabi_dsub
                 0x00000000       0x12 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_dsub.o)
@@ -261,6 +341,14 @@ Discarded input sections
                 0x00000000        0xe c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_dsub.o)
  .xc_stack_usage
                 0x00000000       0x1a c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_dsub.o)
+ .ARM.attributes
+                0x00000000       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fmul.o)
+ .text.__aeabi_fmul
+                0x00000000       0xb6 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fmul.o)
+ .xc_stack_usage.hdr
+                0x00000000        0xe c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fmul.o)
+ .xc_stack_usage
+                0x00000000       0x1a c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fmul.o)
  .ARM.attributes
                 0x00000000       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_dmul_aux.o)
  .text.__aeabi_dmul_aux
@@ -277,6 +365,14 @@ Discarded input sections
                 0x00000000        0xe c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fdiv.o)
  .xc_stack_usage
                 0x00000000       0x1a c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_fdiv.o)
+ .ARM.attributes
+                0x00000000       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_f2uiz.o)
+ .text.__aeabi_f2uiz
+                0x00000000       0x24 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_f2uiz.o)
+ .xc_stack_usage.hdr
+                0x00000000        0xe c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_f2uiz.o)
+ .xc_stack_usage
+                0x00000000       0x1b c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_f2uiz.o)
  .ARM.attributes
                 0x00000000       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libm-emfloat.a(__aeabi_d2uiz.o)
  .text.__aeabi_d2uiz
@@ -366,12 +462,12 @@ Name             Origin             Length             Attributes
 rom              0x00000000         0x00010000         xrl
 ram              0x20000000         0x00004000         xw !r
 config_00804000  0x00804000         0x00000004
-config_00804004  0x00804004         0x00000004
-config_0080C004  0x0080c004         0x00000004
 config_0080C040  0x0080c040         0x00000004
-config_0080C044  0x0080c044         0x00000004
+config_0080C004  0x0080c004         0x00000004
 config_0080C048  0x0080c048         0x00000004
 config_0080C04C  0x0080c04c         0x00000004
+config_0080C044  0x0080c044         0x00000004
+config_00804004  0x00804004         0x00000004
 *default*        0x00000000         0xffffffff
 
 Linker script and memory map
@@ -392,6 +488,7 @@ LOAD build/sam_l10_xpro/production/_ext/13305212/exceptions.o
 LOAD build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
 LOAD build/sam_l10_xpro/production/_ext/13305212/libc_syscalls.o
 LOAD build/sam_l10_xpro/production/_ext/1360937237/main.o
+LOAD build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
                 0x00000001                __MPLAB_BUILD = 0x1
                 0x00010000                __rom_end = (ORIGIN (rom) + LENGTH (rom))
                 0x20004000                __ram_end = (ORIGIN (ram) + LENGTH (ram))
@@ -399,23 +496,23 @@ LOAD build/sam_l10_xpro/production/_ext/1360937237/main.o
 .config_00804000
  *(.config_00804000)
 
-.config_00804004
- *(.config_00804004)
-
-.config_0080C004
- *(.config_0080C004)
-
 .config_0080C040
  *(.config_0080C040)
 
-.config_0080C044
- *(.config_0080C044)
+.config_0080C004
+ *(.config_0080C004)
 
 .config_0080C048
  *(.config_0080C048)
 
 .config_0080C04C
  *(.config_0080C04C)
+
+.config_0080C044
+ *(.config_0080C044)
+
+.config_00804004
+ *(.config_00804004)
 
 .vectors        0x00000000       0xf4
                 0x00000000                . = ALIGN (0x4)
@@ -527,17 +624,17 @@ LOAD data_init
  .ARM.attributes
                 0x00000142       0x30 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
  .ARM.attributes
-                0x00000172       0x30 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+                0x00000172       0x30 build/sam_l10_xpro/production/_ext/13305212/initialization.o
  .ARM.attributes
-                0x000001a2       0x30 build/sam_l10_xpro/production/_ext/13305212/initialization.o
+                0x000001a2       0x30 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
  .ARM.attributes
-                0x000001d2       0x30 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
+                0x000001d2       0x30 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
  .ARM.attributes
-                0x00000202       0x30 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
+                0x00000202       0x30 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
  .ARM.attributes
-                0x00000232       0x30 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
+                0x00000232       0x30 build/sam_l10_xpro/production/_ext/1360937237/main.o
  .ARM.attributes
-                0x00000262       0x30 build/sam_l10_xpro/production/_ext/1360937237/main.o
+                0x00000262       0x30 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
  .ARM.attributes
                 0x00000292       0x30 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
  .ARM.attributes
@@ -562,12 +659,12 @@ LOAD data_init
  .comment       0x0000002b       0x2c build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
  .comment       0x0000002b       0x2c build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
  .comment       0x0000002b       0x2c build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
- .comment       0x0000002b       0x2c build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
  .comment       0x0000002b       0x2c build/sam_l10_xpro/production/_ext/13305212/initialization.o
  .comment       0x0000002b       0x2c build/sam_l10_xpro/production/_ext/13305212/interrupts.o
  .comment       0x0000002b       0x2c build/sam_l10_xpro/production/_ext/13305212/exceptions.o
  .comment       0x0000002b       0x2c build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
  .comment       0x0000002b       0x2c build/sam_l10_xpro/production/_ext/1360937237/main.o
+ .comment       0x0000002b       0x2c build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
  .comment       0x0000002b       0x2c c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
  .comment       0x0000002b       0x2c c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
  .comment       0x0000002b       0x2c c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
@@ -575,173 +672,173 @@ LOAD data_init
  .comment       0x0000002b       0x2c c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
  .comment       0x0000002b       0x2c c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__environ.o)
 
-.debug_info     0x00000000     0x7f30
+.debug_info     0x00000000     0x886f
  .debug_info    0x00000000      0x9c3 build/sam_l10_xpro/production/_ext/14877202/plib_clock.o
  .debug_info    0x000009c3      0x2ca build/sam_l10_xpro/production/_ext/12727716/plib_evsys.o
- .debug_info    0x00000c8d      0xacf build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
- .debug_info    0x0000175c      0x9e3 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
- .debug_info    0x0000213f      0x515 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
- .debug_info    0x00002654      0x800 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
- .debug_info    0x00002e54     0x1725 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
- .debug_info    0x00004579      0x709 build/sam_l10_xpro/production/_ext/13305212/initialization.o
- .debug_info    0x00004c82      0xa60 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
- .debug_info    0x000056e2      0x38c build/sam_l10_xpro/production/_ext/13305212/exceptions.o
- .debug_info    0x00005a6e      0x480 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
- .debug_info    0x00005eee      0xa0a build/sam_l10_xpro/production/_ext/1360937237/main.o
- .debug_info    0x000068f8      0x2a5 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
- .debug_info    0x00006b9d      0x2a6 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
- .debug_info    0x00006e43      0x624 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
- .debug_info    0x00007467      0x536 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(libc.o)
- .debug_info    0x0000799d      0x2e3 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
- .debug_info    0x00007c80      0x2b0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__environ.o)
+ .debug_info    0x00000c8d      0xca0 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
+ .debug_info    0x0000192d      0xd1d build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .debug_info    0x0000264a      0x515 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
+ .debug_info    0x00002b5f      0xbdb build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
+ .debug_info    0x0000373a      0x70a build/sam_l10_xpro/production/_ext/13305212/initialization.o
+ .debug_info    0x00003e44      0xabb build/sam_l10_xpro/production/_ext/13305212/interrupts.o
+ .debug_info    0x000048ff      0x2ee build/sam_l10_xpro/production/_ext/13305212/exceptions.o
+ .debug_info    0x00004bed      0x450 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
+ .debug_info    0x0000503d      0xa1c build/sam_l10_xpro/production/_ext/1360937237/main.o
+ .debug_info    0x00005a59     0x17de build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .debug_info    0x00007237      0x2a5 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
+ .debug_info    0x000074dc      0x2a6 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
+ .debug_info    0x00007782      0x624 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
+ .debug_info    0x00007da6      0x536 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(libc.o)
+ .debug_info    0x000082dc      0x2e3 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
+ .debug_info    0x000085bf      0x2b0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__environ.o)
 
-.debug_abbrev   0x00000000     0x116a
+.debug_abbrev   0x00000000     0x130c
  .debug_abbrev  0x00000000      0x104 build/sam_l10_xpro/production/_ext/14877202/plib_clock.o
  .debug_abbrev  0x00000104       0x3b build/sam_l10_xpro/production/_ext/12727716/plib_evsys.o
- .debug_abbrev  0x0000013f      0x165 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
- .debug_abbrev  0x000002a4      0x1a8 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
- .debug_abbrev  0x0000044c       0xfb build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
- .debug_abbrev  0x00000547      0x155 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
- .debug_abbrev  0x0000069c      0x37c build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
- .debug_abbrev  0x00000a18       0xd5 build/sam_l10_xpro/production/_ext/13305212/initialization.o
- .debug_abbrev  0x00000aed       0xb2 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
- .debug_abbrev  0x00000b9f       0x3e build/sam_l10_xpro/production/_ext/13305212/exceptions.o
- .debug_abbrev  0x00000bdd       0xed build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
- .debug_abbrev  0x00000cca      0x193 build/sam_l10_xpro/production/_ext/1360937237/main.o
- .debug_abbrev  0x00000e5d       0x2e c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
- .debug_abbrev  0x00000e8b       0x2e c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
- .debug_abbrev  0x00000eb9      0x117 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
- .debug_abbrev  0x00000fd0       0xb8 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(libc.o)
- .debug_abbrev  0x00001088       0x8b c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
- .debug_abbrev  0x00001113       0x57 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__environ.o)
+ .debug_abbrev  0x0000013f      0x1d0 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
+ .debug_abbrev  0x0000030f      0x1d8 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .debug_abbrev  0x000004e7       0xfb build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
+ .debug_abbrev  0x000005e2      0x1c7 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
+ .debug_abbrev  0x000007a9       0xe9 build/sam_l10_xpro/production/_ext/13305212/initialization.o
+ .debug_abbrev  0x00000892       0xb5 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
+ .debug_abbrev  0x00000947       0x3e build/sam_l10_xpro/production/_ext/13305212/exceptions.o
+ .debug_abbrev  0x00000985      0x110 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
+ .debug_abbrev  0x00000a95      0x193 build/sam_l10_xpro/production/_ext/1360937237/main.o
+ .debug_abbrev  0x00000c28      0x3d7 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .debug_abbrev  0x00000fff       0x2e c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
+ .debug_abbrev  0x0000102d       0x2e c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
+ .debug_abbrev  0x0000105b      0x117 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
+ .debug_abbrev  0x00001172       0xb8 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(libc.o)
+ .debug_abbrev  0x0000122a       0x8b c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
+ .debug_abbrev  0x000012b5       0x57 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__environ.o)
 
-.debug_aranges  0x00000000      0x350
+.debug_aranges  0x00000000      0x3a8
  .debug_aranges
                 0x00000000       0x20 build/sam_l10_xpro/production/_ext/14877202/plib_clock.o
  .debug_aranges
                 0x00000020       0x20 build/sam_l10_xpro/production/_ext/12727716/plib_evsys.o
  .debug_aranges
-                0x00000040       0x20 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
+                0x00000040       0x38 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
  .debug_aranges
-                0x00000060       0x60 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+                0x00000078       0xa0 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
  .debug_aranges
-                0x000000c0       0x40 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
+                0x00000118       0x40 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
  .debug_aranges
-                0x00000100       0x60 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
- .debug_aranges
-                0x00000160       0x68 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+                0x00000158       0x70 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
  .debug_aranges
                 0x000001c8       0x20 build/sam_l10_xpro/production/_ext/13305212/initialization.o
  .debug_aranges
                 0x000001e8       0x20 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
  .debug_aranges
-                0x00000208       0x48 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
+                0x00000208       0x28 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
  .debug_aranges
-                0x00000250       0x20 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
+                0x00000230       0x28 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
  .debug_aranges
-                0x00000270       0x28 build/sam_l10_xpro/production/_ext/1360937237/main.o
+                0x00000258       0x28 build/sam_l10_xpro/production/_ext/1360937237/main.o
  .debug_aranges
-                0x00000298       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
+                0x00000280       0x70 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
  .debug_aranges
-                0x000002b8       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
+                0x000002f0       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
  .debug_aranges
-                0x000002d8       0x28 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
+                0x00000310       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
  .debug_aranges
-                0x00000300       0x18 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(libc.o)
+                0x00000330       0x28 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
  .debug_aranges
-                0x00000318       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
+                0x00000358       0x18 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(libc.o)
  .debug_aranges
-                0x00000338       0x18 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__environ.o)
+                0x00000370       0x20 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
+ .debug_aranges
+                0x00000390       0x18 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__environ.o)
 
-.debug_ranges   0x00000000      0x2b8
+.debug_ranges   0x00000000      0x310
  .debug_ranges  0x00000000       0x10 build/sam_l10_xpro/production/_ext/14877202/plib_clock.o
  .debug_ranges  0x00000010       0x10 build/sam_l10_xpro/production/_ext/12727716/plib_evsys.o
- .debug_ranges  0x00000020       0x10 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
- .debug_ranges  0x00000030       0x50 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
- .debug_ranges  0x00000080       0x30 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
- .debug_ranges  0x000000b0       0x50 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
- .debug_ranges  0x00000100       0xd0 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
- .debug_ranges  0x000001d0       0x10 build/sam_l10_xpro/production/_ext/13305212/initialization.o
- .debug_ranges  0x000001e0       0x10 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
- .debug_ranges  0x000001f0       0x38 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
- .debug_ranges  0x00000228       0x10 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
- .debug_ranges  0x00000238       0x18 build/sam_l10_xpro/production/_ext/1360937237/main.o
- .debug_ranges  0x00000250       0x10 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
- .debug_ranges  0x00000260       0x10 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
- .debug_ranges  0x00000270       0x38 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
- .debug_ranges  0x000002a8       0x10 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
+ .debug_ranges  0x00000020       0x28 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
+ .debug_ranges  0x00000048       0x90 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .debug_ranges  0x000000d8       0x30 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
+ .debug_ranges  0x00000108       0x60 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
+ .debug_ranges  0x00000168       0x10 build/sam_l10_xpro/production/_ext/13305212/initialization.o
+ .debug_ranges  0x00000178       0x10 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
+ .debug_ranges  0x00000188       0x18 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
+ .debug_ranges  0x000001a0       0x18 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
+ .debug_ranges  0x000001b8       0x18 build/sam_l10_xpro/production/_ext/1360937237/main.o
+ .debug_ranges  0x000001d0       0xd8 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .debug_ranges  0x000002a8       0x10 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
+ .debug_ranges  0x000002b8       0x10 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
+ .debug_ranges  0x000002c8       0x38 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
+ .debug_ranges  0x00000300       0x10 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
 
-.debug_line     0x00000000     0x220d
+.debug_line     0x00000000     0x25c8
  .debug_line    0x00000000      0x217 build/sam_l10_xpro/production/_ext/14877202/plib_clock.o
  .debug_line    0x00000217       0x6b build/sam_l10_xpro/production/_ext/12727716/plib_evsys.o
- .debug_line    0x00000282      0x267 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
- .debug_line    0x000004e9      0x285 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
- .debug_line    0x0000076e      0x228 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
- .debug_line    0x00000996      0x211 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
- .debug_line    0x00000ba7      0x774 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
- .debug_line    0x0000131b      0x2af build/sam_l10_xpro/production/_ext/13305212/initialization.o
- .debug_line    0x000015ca       0xdb build/sam_l10_xpro/production/_ext/13305212/interrupts.o
- .debug_line    0x000016a5       0xcb build/sam_l10_xpro/production/_ext/13305212/exceptions.o
- .debug_line    0x00001770      0x166 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
- .debug_line    0x000018d6      0x2f8 build/sam_l10_xpro/production/_ext/1360937237/main.o
- .debug_line    0x00001bce       0xac c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
- .debug_line    0x00001c7a      0x119 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
- .debug_line    0x00001d93      0x1cd c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
- .debug_line    0x00001f60       0xbc c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(libc.o)
- .debug_line    0x0000201c       0xe8 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
- .debug_line    0x00002104      0x109 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__environ.o)
+ .debug_line    0x00000282      0x36d build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
+ .debug_line    0x000005ef      0x444 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .debug_line    0x00000a33      0x233 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
+ .debug_line    0x00000c66      0x2bf build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
+ .debug_line    0x00000f25      0x2af build/sam_l10_xpro/production/_ext/13305212/initialization.o
+ .debug_line    0x000011d4       0xbf build/sam_l10_xpro/production/_ext/13305212/interrupts.o
+ .debug_line    0x00001293       0x73 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
+ .debug_line    0x00001306      0x15c build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
+ .debug_line    0x00001462      0x2f8 build/sam_l10_xpro/production/_ext/1360937237/main.o
+ .debug_line    0x0000175a      0x82f build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .debug_line    0x00001f89       0xac c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
+ .debug_line    0x00002035      0x119 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
+ .debug_line    0x0000214e      0x1cd c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
+ .debug_line    0x0000231b       0xbc c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(libc.o)
+ .debug_line    0x000023d7       0xe8 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
+ .debug_line    0x000024bf      0x109 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__environ.o)
 
-.debug_str      0x00000000      0x2f5
+.debug_str      0x00000000      0x2d0
  .debug_str     0x00000000       0x1e build/sam_l10_xpro/production/_ext/14877202/plib_clock.o
  .debug_str     0x0000001e        0x0 build/sam_l10_xpro/production/_ext/12727716/plib_evsys.o
  .debug_str     0x0000001e        0x0 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
- .debug_str     0x0000001e        0x8 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
- .debug_str     0x00000026        0x0 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
- .debug_str     0x00000026        0xb build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
- .debug_str     0x00000031      0x167 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
- .debug_str     0x00000198       0x7a build/sam_l10_xpro/production/_ext/13305212/initialization.o
- .debug_str     0x00000212        0x0 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
- .debug_str     0x00000212        0x0 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
- .debug_str     0x00000212       0x6b build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
- .debug_str     0x0000027d       0x78 build/sam_l10_xpro/production/_ext/1360937237/main.o
- .debug_str     0x000002f5        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
- .debug_str     0x000002f5        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
- .debug_str     0x000002f5        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
- .debug_str     0x000002f5        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(libc.o)
- .debug_str     0x000002f5        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
- .debug_str     0x000002f5        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__environ.o)
+ .debug_str     0x0000001e       0x1f build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .debug_str     0x0000003d        0x0 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
+ .debug_str     0x0000003d        0xb build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
+ .debug_str     0x00000048       0x7a build/sam_l10_xpro/production/_ext/13305212/initialization.o
+ .debug_str     0x000000c2        0x0 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
+ .debug_str     0x000000c2        0x0 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
+ .debug_str     0x000000c2       0x2f build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
+ .debug_str     0x000000f1       0x78 build/sam_l10_xpro/production/_ext/1360937237/main.o
+ .debug_str     0x00000169      0x167 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .debug_str     0x000002d0        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
+ .debug_str     0x000002d0        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
+ .debug_str     0x000002d0        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
+ .debug_str     0x000002d0        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(libc.o)
+ .debug_str     0x000002d0        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
+ .debug_str     0x000002d0        0x0 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__environ.o)
 
-.debug_frame    0x00000000      0x4e8
+.debug_frame    0x00000000      0x5c8
  .debug_frame   0x00000000       0x20 build/sam_l10_xpro/production/_ext/14877202/plib_clock.o
  .debug_frame   0x00000020       0x20 build/sam_l10_xpro/production/_ext/12727716/plib_evsys.o
- .debug_frame   0x00000040       0x20 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
- .debug_frame   0x00000060       0xb4 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
- .debug_frame   0x00000114       0x60 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
- .debug_frame   0x00000174       0xa0 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
- .debug_frame   0x00000214       0xf0 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
- .debug_frame   0x00000304       0x28 build/sam_l10_xpro/production/_ext/13305212/initialization.o
- .debug_frame   0x0000032c       0x20 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
- .debug_frame   0x0000034c       0x70 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
- .debug_frame   0x000003bc       0x28 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
- .debug_frame   0x000003e4       0x48 build/sam_l10_xpro/production/_ext/1360937237/main.o
- .debug_frame   0x0000042c       0x28 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
- .debug_frame   0x00000454       0x30 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
- .debug_frame   0x00000484       0x38 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
- .debug_frame   0x000004bc       0x2c c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
+ .debug_frame   0x00000040       0x50 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
+ .debug_frame   0x00000090      0x15c build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .debug_frame   0x000001ec       0x60 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
+ .debug_frame   0x0000024c       0xcc build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
+ .debug_frame   0x00000318       0x28 build/sam_l10_xpro/production/_ext/13305212/initialization.o
+ .debug_frame   0x00000340       0x20 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
+ .debug_frame   0x00000360       0x30 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
+ .debug_frame   0x00000390       0x38 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
+ .debug_frame   0x000003c8       0x48 build/sam_l10_xpro/production/_ext/1360937237/main.o
+ .debug_frame   0x00000410       0xfc build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .debug_frame   0x0000050c       0x28 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
+ .debug_frame   0x00000534       0x30 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
+ .debug_frame   0x00000564       0x38 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
+ .debug_frame   0x0000059c       0x2c c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
 
-.debug_loc      0x00000000     0x100e
- .debug_loc     0x00000000      0x108 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
- .debug_loc     0x00000108      0x1b1 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
- .debug_loc     0x000002b9       0x63 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
- .debug_loc     0x0000031c       0x94 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
- .debug_loc     0x000003b0      0x8ca build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
- .debug_loc     0x00000c7a       0x45 build/sam_l10_xpro/production/_ext/13305212/initialization.o
- .debug_loc     0x00000cbf       0x20 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
- .debug_loc     0x00000cdf      0x125 build/sam_l10_xpro/production/_ext/1360937237/main.o
- .debug_loc     0x00000e04       0x14 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
- .debug_loc     0x00000e18       0x14 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
- .debug_loc     0x00000e2c       0x5e c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
- .debug_loc     0x00000e8a      0x184 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
+.debug_loc      0x00000000     0x17bc
+ .debug_loc     0x00000000      0x136 build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
+ .debug_loc     0x00000136      0x628 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+ .debug_loc     0x0000075e       0x63 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
+ .debug_loc     0x000007c1      0x226 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
+ .debug_loc     0x000009e7       0x45 build/sam_l10_xpro/production/_ext/13305212/initialization.o
+ .debug_loc     0x00000a2c       0x20 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
+ .debug_loc     0x00000a4c      0x125 build/sam_l10_xpro/production/_ext/1360937237/main.o
+ .debug_loc     0x00000b71      0xa41 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+ .debug_loc     0x000015b2       0x14 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
+ .debug_loc     0x000015c6       0x14 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
+ .debug_loc     0x000015da       0x5e c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
+ .debug_loc     0x00001638      0x184 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
 
 .note.GNU-stack
                 0x00000000        0x0
@@ -767,10 +864,10 @@ LOAD data_init
                 0x2000000c                __hwcap
                 0x20000010                __libc
 
-.bss.sercom0I2CObj%2
+.bss.sercom1I2CObj%2
                 0x20000050       0x2c
- .bss.sercom0I2CObj
-                0x20000050       0x2c build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
+ .bss.sercom1I2CObj
+                0x20000050       0x2c build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
 
 .bss%3          0x2000007c       0x1c
  .bss           0x2000007c       0x1c c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v8-m.base/nofp/crtbegin.o
@@ -808,203 +905,243 @@ LOAD data_init
                 0x00804004        0x4 build/sam_l10_xpro/production/_ext/13305212/initialization.o
                 0x00804004                __config_00804004
 
-.text.SERCOM0_I2C_InterruptHandler%10
-                0x00000114      0x290
- .text.SERCOM0_I2C_InterruptHandler
-                0x00000114      0x290 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
-                0x00000114                SERCOM0_I2C_InterruptHandler
+.config_0080C004.__config_0080C004%10
+                0x0080c004        0x4
+ .config_0080C004.__config_0080C004
+                0x0080c004        0x4 build/sam_l10_xpro/production/_ext/13305212/initialization.o
+                0x0080c004                __config_0080C004
 
-.text.main%11   0x000003a4      0x148
- .text.main     0x000003a4      0x148 build/sam_l10_xpro/production/_ext/1360937237/main.o
-                0x000003a4                main
+.config_0080C040.__config_0080C040%11
+                0x0080c040        0x4
+ .config_0080C040.__config_0080C040
+                0x0080c040        0x4 build/sam_l10_xpro/production/_ext/13305212/initialization.o
+                0x0080c040                __config_0080C040
 
-.text.CLOCK_Initialize%12
-                0x000004ec       0xf0
+.config_0080C044.__config_0080C044%12
+                0x0080c044        0x4
+ .config_0080C044.__config_0080C044
+                0x0080c044        0x4 build/sam_l10_xpro/production/_ext/13305212/initialization.o
+                0x0080c044                __config_0080C044
+
+.config_0080C048.__config_0080C048%13
+                0x0080c048        0x4
+ .config_0080C048.__config_0080C048
+                0x0080c048        0x4 build/sam_l10_xpro/production/_ext/13305212/initialization.o
+                0x0080c048                __config_0080C048
+
+.config_0080C04C.__config_0080C04C%14
+                0x0080c04c        0x4
+ .config_0080C04C.__config_0080C04C
+                0x0080c04c        0x4 build/sam_l10_xpro/production/_ext/13305212/initialization.o
+                0x0080c04c                __config_0080C04C
+
+.text.SERCOM1_I2C_InterruptHandler%15
+                0x00000114      0x2ac
+ .text.SERCOM1_I2C_InterruptHandler
+                0x00000114      0x2ac build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+                0x00000114                SERCOM1_I2C_InterruptHandler
+
+.text.main%16   0x000003c0      0x148
+ .text.main     0x000003c0      0x148 build/sam_l10_xpro/production/_ext/1360937237/main.o
+                0x000003c0                main
+
+.text.CLOCK_Initialize%17
+                0x00000508       0xf0
  .text.CLOCK_Initialize
-                0x000004ec       0xf0 build/sam_l10_xpro/production/_ext/14877202/plib_clock.o
-                0x000004ec                CLOCK_Initialize
+                0x00000508       0xf0 build/sam_l10_xpro/production/_ext/14877202/plib_clock.o
+                0x00000508                CLOCK_Initialize
 
-.text.SERCOM0_I2C_Initialize%13
-                0x000005dc       0x8c
- .text.SERCOM0_I2C_Initialize
-                0x000005dc       0x8c build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
-                0x000005dc                SERCOM0_I2C_Initialize
+.text.SERCOM1_I2C_Initialize%18
+                0x000005f8       0x8c
+ .text.SERCOM1_I2C_Initialize
+                0x000005f8       0x8c build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+                0x000005f8                SERCOM1_I2C_Initialize
 
-.text.Reset_Handler%14
-                0x00000668       0x7c
- .text.Reset_Handler
-                0x00000668       0x7c build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
-                0x00000668                Reset_Handler
+.text.SERCOM1_I2C_InitiateTransfer%19
+                0x00000684       0x74
+ .text.SERCOM1_I2C_InitiateTransfer
+                0x00000684       0x74 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
 
-.text.SERCOM0_I2C_InitiateTransfer%15
-                0x000006e4       0x74
- .text.SERCOM0_I2C_InitiateTransfer
-                0x000006e4       0x74 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
-
-.text.__pic32c_data_initialization_impl%16
-                0x00000758       0x70
+.text.__pic32c_data_initialization_impl%20
+                0x000006f8       0x70
  .text.__pic32c_data_initialization_impl
-                0x00000758       0x70 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
-                0x00000758                __copy_needed
-                0x00000758                __pic32c_data_initialization_impl
+                0x000006f8       0x70 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_0_1.o)
+                0x000006f8                __copy_needed
+                0x000006f8                __pic32c_data_initialization_impl
 
-.dinit%17       0x000007c8       0x70
- .dinit         0x000007c8       0x70 data_init
+.dinit%21       0x00000768       0x70
+ .dinit         0x00000768       0x70 data_init
 
-.text.NVIC_Initialize%18
-                0x00000838       0x6c
+.text.NVIC_Initialize%22
+                0x000007d8       0x6c
  .text.NVIC_Initialize
-                0x00000838       0x6c build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
-                0x00000838                NVIC_Initialize
+                0x000007d8       0x6c build/sam_l10_xpro/production/_ext/1939805438/plib_nvic.o
+                0x000007d8                NVIC_Initialize
 
-.text.__libc_start_init%19
-                0x000008a4       0x5c
+.text.__libc_start_init%23
+                0x00000844       0x5c
  .text.__libc_start_init
-                0x000008a4       0x5c c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
-                0x000008a4                __libc_init_array
+                0x00000844       0x5c c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
+                0x00000844                __libc_init_array
 
-.text%20        0x00000900       0x40
- .text          0x00000900       0x40 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v8-m.base/nofp/crtbegin.o
+.text.Reset_Handler%24
+                0x000008a0       0x54
+ .text.Reset_Handler
+                0x000008a0       0x54 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
+                0x000008a0                Reset_Handler
 
-.text.SERCOM0_I2C_WriteRead%21
-                0x00000940       0x40
- .text.SERCOM0_I2C_WriteRead
-                0x00000940       0x40 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
-                0x00000940                SERCOM0_I2C_WriteRead
+.text%25        0x000008f4       0x40
+ .text          0x000008f4       0x40 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v8-m.base/nofp/crtbegin.o
 
-.text.SERCOM0_I2C_Write%22
-                0x00000980       0x3e
- .text.SERCOM0_I2C_Write
-                0x00000980       0x3e build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
-                0x00000980                SERCOM0_I2C_Write
+.text.SERCOM1_I2C_WriteRead%26
+                0x00000934       0x40
+ .text.SERCOM1_I2C_WriteRead
+                0x00000934       0x40 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+                0x00000934                SERCOM1_I2C_WriteRead
 
-.text.SYS_Initialize%23
-                0x000009be       0x2c
- .text.SYS_Initialize
-                0x000009be       0x2c build/sam_l10_xpro/production/_ext/13305212/initialization.o
-                0x000009be                SYS_Initialize
+.text.SERCOM1_I2C_Write%27
+                0x00000974       0x3e
+ .text.SERCOM1_I2C_Write
+                0x00000974       0x3e build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+                0x00000974                SERCOM1_I2C_Write
 
-.text.PM_Initialize%24
-                0x000009ea       0x28
+.text.PM_Initialize%28
+                0x000009b2       0x3a
  .text.PM_Initialize
-                0x000009ea       0x28 build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
-                0x000009ea                PM_Initialize
+                0x000009b2       0x3a build/sam_l10_xpro/production/_ext/592394269/plib_pm.o
+                0x000009b2                PM_Initialize
 
-.rodata.main%25
-                0x00000a14       0x28
- .rodata.main   0x00000a14       0x28 build/sam_l10_xpro/production/_ext/1360937237/main.o
-
-.text.PORT_Initialize%26
-                0x00000a3c       0x26
+.text.PORT_Initialize%29
+                0x000009ec       0x34
  .text.PORT_Initialize
-                0x00000a3c       0x26 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
-                0x00000a3c                PORT_Initialize
+                0x000009ec       0x34 build/sam_l10_xpro/production/_ext/1939752287/plib_port.o
+                0x000009ec                PORT_Initialize
 
-.text.APP_I2CCallback%27
-                0x00000a62       0x1c
+.text.SYS_Initialize%30
+                0x00000a20       0x2c
+ .text.SYS_Initialize
+                0x00000a20       0x2c build/sam_l10_xpro/production/_ext/13305212/initialization.o
+                0x00000a20                SYS_Initialize
+
+.rodata.main%31
+                0x00000a4c       0x28
+ .rodata.main   0x00000a4c       0x28 build/sam_l10_xpro/production/_ext/1360937237/main.o
+
+.text.APP_I2CCallback%32
+                0x00000a74       0x1c
  .text.APP_I2CCallback
-                0x00000a62       0x1c build/sam_l10_xpro/production/_ext/1360937237/main.o
-                0x00000a62                APP_I2CCallback
+                0x00000a74       0x1c build/sam_l10_xpro/production/_ext/1360937237/main.o
+                0x00000a74                APP_I2CCallback
 
-.text.memcmp%28
-                0x00000a7e       0x1c
- .text.memcmp   0x00000a7e       0x1c c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
-                0x00000a7e                memcmp
+.text.memcmp%33
+                0x00000a90       0x1c
+ .text.memcmp   0x00000a90       0x1c c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(memcmp.o)
+                0x00000a90                memcmp
 
-.text.NVMCTRL_Initialize%29
-                0x00000a9a       0x12
+.text.NVMCTRL_Initialize%34
+                0x00000aac       0x12
  .text.NVMCTRL_Initialize
-                0x00000a9a       0x12 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
-                0x00000a9a                NVMCTRL_Initialize
+                0x00000aac       0x12 build/sam_l10_xpro/production/_ext/44973424/plib_nvmctrl.o
+                0x00000aac                NVMCTRL_Initialize
 
-.text.SERCOM0_I2C_ErrorGet%30
-                0x00000aac       0x10
- .text.SERCOM0_I2C_ErrorGet
-                0x00000aac       0x10 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
-                0x00000aac                SERCOM0_I2C_ErrorGet
+.text.SERCOM1_I2C_ErrorGet%35
+                0x00000abe       0x10
+ .text.SERCOM1_I2C_ErrorGet
+                0x00000abe       0x10 build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+                0x00000abe                SERCOM1_I2C_ErrorGet
 
-.text.SERCOM0_I2C_CallbackRegister%31
-                0x00000abc        0xe
- .text.SERCOM0_I2C_CallbackRegister
-                0x00000abc        0xe build/sam_l10_xpro/production/_ext/1757905205/plib_sercom0_i2c_master.o
-                0x00000abc                SERCOM0_I2C_CallbackRegister
+.text.SERCOM1_I2C_CallbackRegister%36
+                0x00000ace        0xe
+ .text.SERCOM1_I2C_CallbackRegister
+                0x00000ace        0xe build/sam_l10_xpro/production/_ext/1757905205/plib_sercom1_i2c_master.o
+                0x00000ace                SERCOM1_I2C_CallbackRegister
 
-.text.__pic32c_data_initialization%32
-                0x00000aca        0x8
+.text.__pic32c_data_initialization%37
+                0x00000adc        0x8
  .text.__pic32c_data_initialization
-                0x00000aca        0x8 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
-                0x00000aca                __pic32c_data_initialization
+                0x00000adc        0x8 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libpic32c.a(data_init_wrapper.o)
+                0x00000adc                __pic32c_data_initialization
 
-.text.EVSYS_Initialize%33
-                0x00000a12        0x2
+.text.EVSYS_Initialize%38
+                0x00000ae4        0x2
  .text.EVSYS_Initialize
-                0x00000a12        0x2 build/sam_l10_xpro/production/_ext/12727716/plib_evsys.o
-                0x00000a12                EVSYS_Initialize
+                0x00000ae4        0x2 build/sam_l10_xpro/production/_ext/12727716/plib_evsys.o
+                0x00000ae4                EVSYS_Initialize
 
-.text.Dummy_Handler%34
-                0x00000ad2        0x2
+.text.Dummy_Handler%39
+                0x00000ae6        0x2
  .text.Dummy_Handler
-                0x00000ad2        0x2 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
-                0x00000ad2                SVCall_Handler
-                0x00000ad2                EVSYS_0_Handler
-                0x00000ad2                TRNG_Handler
-                0x00000ad2                ADC_RESRDY_Handler
-                0x00000ad2                TC2_Handler
-                0x00000ad2                AC_Handler
-                0x00000ad2                DMAC_OTHER_Handler
-                0x00000ad2                SysTick_Handler
-                0x00000ad2                PendSV_Handler
-                0x00000ad2                EVSYS_3_Handler
-                0x00000ad2                RTC_Handler
-                0x00000ad2                SERCOM1_OTHER_Handler
-                0x00000ad2                EVSYS_1_Handler
-                0x00000ad2                DMAC_0_Handler
-                0x00000ad2                WDT_Handler
-                0x00000ad2                TRAM_Handler
-                0x00000ad2                EVSYS_NSCHK_Handler
-                0x00000ad2                EIC_EXTINT_1_Handler
-                0x00000ad2                TC1_Handler
-                0x00000ad2                EIC_EXTINT_0_Handler
-                0x00000ad2                DAC_EMPTY_Handler
-                0x00000ad2                PAC_Handler
-                0x00000ad2                Dummy_Handler
-                0x00000ad2                DMAC_2_Handler
-                0x00000ad2                DMAC_1_Handler
-                0x00000ad2                EIC_EXTINT_2_Handler
-                0x00000ad2                SERCOM1_1_Handler
-                0x00000ad2                NVMCTRL_Handler
-                0x00000ad2                PORT_Handler
-                0x00000ad2                SYSTEM_Handler
-                0x00000ad2                SERCOM1_0_Handler
-                0x00000ad2                SERCOM2_1_Handler
-                0x00000ad2                SERCOM1_2_Handler
-                0x00000ad2                SERCOM2_2_Handler
-                0x00000ad2                EIC_EXTINT_3_Handler
-                0x00000ad2                PTC_Handler
-                0x00000ad2                EVSYS_2_Handler
-                0x00000ad2                SERCOM2_OTHER_Handler
-                0x00000ad2                FREQM_Handler
-                0x00000ad2                DAC_UNDERRUN_A_Handler
-                0x00000ad2                TC0_Handler
-                0x00000ad2                EIC_OTHER_Handler
-                0x00000ad2                ADC_OTHER_Handler
-                0x00000ad2                DMAC_3_Handler
-                0x00000ad2                SERCOM2_0_Handler
+                0x00000ae6        0x2 build/sam_l10_xpro/production/_ext/13305212/interrupts.o
+                0x00000ae6                SVCall_Handler
+                0x00000ae6                SERCOM0_2_Handler
+                0x00000ae6                EVSYS_0_Handler
+                0x00000ae6                TRNG_Handler
+                0x00000ae6                ADC_RESRDY_Handler
+                0x00000ae6                TC2_Handler
+                0x00000ae6                AC_Handler
+                0x00000ae6                DMAC_OTHER_Handler
+                0x00000ae6                SysTick_Handler
+                0x00000ae6                PendSV_Handler
+                0x00000ae6                EVSYS_3_Handler
+                0x00000ae6                SERCOM0_OTHER_Handler
+                0x00000ae6                SERCOM0_0_Handler
+                0x00000ae6                RTC_Handler
+                0x00000ae6                EVSYS_1_Handler
+                0x00000ae6                DMAC_0_Handler
+                0x00000ae6                WDT_Handler
+                0x00000ae6                TRAM_Handler
+                0x00000ae6                EVSYS_NSCHK_Handler
+                0x00000ae6                EIC_EXTINT_1_Handler
+                0x00000ae6                TC1_Handler
+                0x00000ae6                EIC_EXTINT_0_Handler
+                0x00000ae6                DAC_EMPTY_Handler
+                0x00000ae6                PAC_Handler
+                0x00000ae6                Dummy_Handler
+                0x00000ae6                DMAC_2_Handler
+                0x00000ae6                SERCOM0_1_Handler
+                0x00000ae6                DMAC_1_Handler
+                0x00000ae6                EIC_EXTINT_2_Handler
+                0x00000ae6                NVMCTRL_Handler
+                0x00000ae6                PORT_Handler
+                0x00000ae6                SYSTEM_Handler
+                0x00000ae6                SERCOM2_1_Handler
+                0x00000ae6                SERCOM2_2_Handler
+                0x00000ae6                EIC_EXTINT_3_Handler
+                0x00000ae6                PTC_Handler
+                0x00000ae6                EVSYS_2_Handler
+                0x00000ae6                SERCOM2_OTHER_Handler
+                0x00000ae6                FREQM_Handler
+                0x00000ae6                DAC_UNDERRUN_A_Handler
+                0x00000ae6                TC0_Handler
+                0x00000ae6                EIC_OTHER_Handler
+                0x00000ae6                ADC_OTHER_Handler
+                0x00000ae6                DMAC_3_Handler
+                0x00000ae6                SERCOM2_0_Handler
 
-.text.NonMaskableInt_Handler%35
-                0x00000ad4        0x2
+.text.NonMaskableInt_Handler%40
+                0x00000ae8        0x2
  .text.NonMaskableInt_Handler
-                0x00000ad4        0x2 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
-                0x00000ad4                NonMaskableInt_Handler
+                0x00000ae8        0x2 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
+                0x00000ae8                NonMaskableInt_Handler
 
-.text.HardFault_Handler%36
-                0x00000ad6        0x2
+.text.HardFault_Handler%41
+                0x00000aea        0x2
  .text.HardFault_Handler
-                0x00000ad6        0x2 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
-                0x00000ad6                HardFault_Handler
+                0x00000aea        0x2 build/sam_l10_xpro/production/_ext/13305212/exceptions.o
+                0x00000aea                HardFault_Handler
 
-.text.__dummy%37
-                0x00000ad8        0x2
- .text.__dummy  0x00000ad8        0x2 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
-                0x00000ad8                __init_stdio
-                0x00000ad8                __init_host
+.text.Dummy_App_Func%42
+                0x00000aec        0x2
+ .text.Dummy_App_Func
+                0x00000aec        0x2 build/sam_l10_xpro/production/_ext/13305212/startup_xc32.o
+                0x00000aec                _on_reset
+                0x00000aec                _on_bootstrap
+                0x00000aec                __xc32_on_reset
+                0x00000aec                Dummy_App_Func
+                0x00000aec                __xc32_on_bootstrap
+
+.text.__dummy%43
+                0x00000aee        0x2
+ .text.__dummy  0x00000aee        0x2 c:/program files/microchip/xc32/v4.21/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v8-m.base/nofp\libc-musl.a(__libc_start_main.o)
+                0x00000aee                __init_stdio
+                0x00000aee                __init_host
