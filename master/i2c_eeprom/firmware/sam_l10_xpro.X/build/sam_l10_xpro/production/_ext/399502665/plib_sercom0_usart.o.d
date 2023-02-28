@@ -1,6 +1,8 @@
-build/sam_l10_xpro/production/_ext/1360937237/main.o: ../src/main.c \
- ../src/config/sam_l10_xpro/definitions.h \
- ../src/config/sam_l10_xpro/peripheral/nvmctrl/plib_nvmctrl.h \
+build/sam_l10_xpro/production/_ext/399502665/plib_sercom0_usart.o: \
+ ../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom0_usart.c \
+ ../src/config/sam_l10_xpro/interrupts.h \
+ ../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom0_usart.h \
+ ../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom_usart_common.h \
  ../src/config/sam_l10_xpro/device.h \
  ../src/packs/ATSAML10E16A_DFP/saml10e16a.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/core_cm23.h \
@@ -74,20 +76,13 @@ build/sam_l10_xpro/production/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/sam_l10_xpro/device_cache.h \
  ../src/config/sam_l10_xpro/device.h \
  ../src/config/sam_l10_xpro/toolchain_specifics.h \
- ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
- ../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom2_usart.h \
- ../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom_usart_common.h \
- ../src/config/sam_l10_xpro/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h \
- ../src/config/sam_l10_xpro/peripheral/sercom/i2c_master/plib_sercom_i2c_master_common.h \
- ../src/config/sam_l10_xpro/peripheral/evsys/plib_evsys.h \
- ../src/config/sam_l10_xpro/peripheral/port/plib_port.h \
- ../src/config/sam_l10_xpro/peripheral/clock/plib_clock.h \
- ../src/config/sam_l10_xpro/peripheral/nvic/plib_nvic.h \
- ../src/config/sam_l10_xpro/peripheral/pm/plib_pm.h
+ ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h
 
-../src/config/sam_l10_xpro/definitions.h:
+../src/config/sam_l10_xpro/interrupts.h:
 
-../src/config/sam_l10_xpro/peripheral/nvmctrl/plib_nvmctrl.h:
+../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom0_usart.h:
+
+../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom_usart_common.h:
 
 ../src/config/sam_l10_xpro/device.h:
 
@@ -236,21 +231,3 @@ build/sam_l10_xpro/production/_ext/1360937237/main.o: ../src/main.c \
 ../src/config/sam_l10_xpro/toolchain_specifics.h:
 
 ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h:
-
-../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom2_usart.h:
-
-../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom_usart_common.h:
-
-../src/config/sam_l10_xpro/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h:
-
-../src/config/sam_l10_xpro/peripheral/sercom/i2c_master/plib_sercom_i2c_master_common.h:
-
-../src/config/sam_l10_xpro/peripheral/evsys/plib_evsys.h:
-
-../src/config/sam_l10_xpro/peripheral/port/plib_port.h:
-
-../src/config/sam_l10_xpro/peripheral/clock/plib_clock.h:
-
-../src/config/sam_l10_xpro/peripheral/nvic/plib_nvic.h:
-
-../src/config/sam_l10_xpro/peripheral/pm/plib_pm.h:

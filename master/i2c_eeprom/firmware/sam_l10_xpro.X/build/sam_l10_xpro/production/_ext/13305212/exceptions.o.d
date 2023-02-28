@@ -77,6 +77,8 @@ build/sam_l10_xpro/production/_ext/13305212/exceptions.o: \
  ../src/config/sam_l10_xpro/device.h \
  ../src/config/sam_l10_xpro/toolchain_specifics.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
+ ../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom2_usart.h \
+ ../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom_usart_common.h \
  ../src/config/sam_l10_xpro/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h \
  ../src/config/sam_l10_xpro/peripheral/sercom/i2c_master/plib_sercom_i2c_master_common.h \
  ../src/config/sam_l10_xpro/peripheral/evsys/plib_evsys.h \
@@ -238,6 +240,10 @@ build/sam_l10_xpro/production/_ext/13305212/exceptions.o: \
 ../src/config/sam_l10_xpro/toolchain_specifics.h:
 
 ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h:
+
+../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom2_usart.h:
+
+../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom_usart_common.h:
 
 ../src/config/sam_l10_xpro/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h:
 

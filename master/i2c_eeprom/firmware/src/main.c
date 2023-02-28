@@ -25,6 +25,7 @@
 #include <stddef.h>                     // Defines NULL
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
+#include <stdio.h>
 #include "definitions.h"                // SYS function prototypes
 #include <string.h>
 #define LED_ON()                       LED_Clear()
@@ -104,9 +105,11 @@ int main ( void )
 
     /* Initialize all modules */
     SYS_Initialize ( NULL );
-
+    printf("\r\n System Initialized \r\n");
     while ( true )
     {
+        
+        putchar(1);
         /* Check the application's current state. */
         switch (state)
         {
