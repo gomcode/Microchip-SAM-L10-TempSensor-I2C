@@ -31,8 +31,8 @@
 #define LED_ON()                       LED_Clear()
 #define LED_OFF()                      LED_Set()
 
-#define APP_AT24MAC_DEVICE_ADDR             0x0040 //0b 0100 0000
-#define APP_AT24MAC_MEMORY_ADDR             0x01 //Temperature Register
+#define APP_AT24MAC_DEVICE_ADDR             0x40 //0b 0100 0000
+#define APP_AT24MAC_MEMORY_ADDR             0x00 //Temperature Register
 #define APP_AT24MAC_MEMORY_ADDR1            0x02 //Configuration Register
 #define APP_TRANSMIT_DATA_LENGTH            6
 #define APP_ACK_DATA_LENGTH                 1
@@ -42,9 +42,13 @@
 static uint8_t testTxData[APP_TRANSMIT_DATA_LENGTH] =
 {
     APP_AT24MAC_MEMORY_ADDR,APP_AT24MAC_MEMORY_ADDR1,
-    'M','C','H','P',
+    0xF9, 0x80 // set to 1111 1001 1000 0000
 };
 
+static uint8_t testTxData2[2] =
+{
+    APP_AT24MAC_MEMORY_ADDR,APP_AT24MAC_MEMORY_ADDR
+};
 static uint8_t  testRxData[APP_RECEIVE_DATA_LENGTH];
 
 typedef enum
@@ -101,7 +105,7 @@ int temp =0;
 int main ( void )
 {
     //APP_STATES state = APP_STATE_EEPROM_STATUS_VERIFY;
-    APP_STATES state = APP_STATE_EEPROM_READ;
+    APP_STATES state = APP_STATE_EEPROM_WRITE;
     volatile APP_TRANSFER_STATUS transferStatus = APP_TRANSFER_STATUS_ERROR;
     uint8_t ackData = 0;
 
@@ -112,6 +116,7 @@ int main ( void )
 
     while ( true )
     {
+        state = APP_STATE_EEPROM_READ;
         /* Check the application's current state. */
         switch (state)
         {
@@ -177,10 +182,14 @@ int main ( void )
 
                 transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
                 /* Read the data from the page written earlier */
-                temp = SERCOM1_I2C_WriteRead(APP_AT24MAC_DEVICE_ADDR, &testTxData[0], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &testRxData[0], APP_RECEIVE_DATA_LENGTH);
+                SERCOM1_I2C_WriteRead(APP_AT24MAC_DEVICE_ADDR, &testTxData2[0], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &testRxData[0], APP_RECEIVE_DATA_LENGTH);
 
                 state = APP_STATE_EEPROM_WAIT_READ_COMPLETE;
-
+                temp = testRxData[0];
+                temp <<= 8;
+                temp = testRxData[1];
+                temp *= 0.03125;                     
+                printf("%d", temp );
                 break;
 
             case APP_STATE_EEPROM_WAIT_READ_COMPLETE:
