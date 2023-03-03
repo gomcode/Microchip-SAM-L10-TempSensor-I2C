@@ -31,8 +31,8 @@
 #define LED_ON()                       LED_Clear()
 #define LED_OFF()                      LED_Set()
 
-#define TMR006_ADDR                            0x40
-#define TMR006_Tdie_ADDR                     0x00 // Tdie Register
+#define TMR006_ADDR                            0x40 // 0b0100 0000
+#define TMR006_Tobj_ADDR                     0x00 // Tdie Register
 #define TMR006_Tamb_ADDR                    0x01 // Tamb Register
 #define TMR006_CONFIG_ADDR                 0x02 // Configuration Register
 
@@ -42,49 +42,78 @@
 #define APP_RECEIVE_DATA_LENGTH                2
 
 
-#define INIT_DATA_LENGTH                      4
+#define INIT_DATA_LENGTH                      3
 static uint8_t tmp006Init[INIT_DATA_LENGTH] =
 {
-    TMR006_ADDR, TMR006_CONFIG_ADDR,
-    0xF9, 0x80 // set to 1111 1001 1000 0000
-};
+    //TMR006_ADDR,
+    TMR006_CONFIG_ADDR,
+    0x79, 0x00 // set to 0111 1001 (0000 0000)
+};  
 
 #define TEMP_REQUEST_DATA_LENGHTH       2
-static uint8_t tDieLoad[TEMP_REQUEST_DATA_LENGHTH] =
+
+static uint8_t tObjLoad[TEMP_REQUEST_DATA_LENGHTH] =
 {
-    TMR006_ADDR, TMR006_Tdie_ADDR
+   TMR006_ADDR,
+   TMR006_Tobj_ADDR
+   //TMR006_CONFIG_ADDR
 };
+
 /*
 static uint8_t tAmbLoad[TEMP_REQUEST_DATA_LENGHTH] =
 {
-    TMR006_ADDR, TMR006_Tamb_ADDR
+    //TMR006_ADDR,
+    TMR006_Tamb_ADDR
 };
 */
 
 #define TEMP_RECEIVE_DATA_LENGHTH           2
-static uint8_t tDieVal[TEMP_RECEIVE_DATA_LENGHTH];
+static uint8_t tObjVal[TEMP_RECEIVE_DATA_LENGHTH];
 //static uint8_t tAmbVal[TEMP_RECEIVE_DATA_LENGHTH];
 
-void tDieTempPrint(void) {
-    uint32_t result = 0;
+void tObjTempPrint(void) {
+    uint16_t result = 0;
     for (int i = 0; i<TEMP_RECEIVE_DATA_LENGHTH; i++) {
         result <<= 8;
-        result |= tDieVal[TEMP_RECEIVE_DATA_LENGHTH];
-       // result = (int)tDieVal;
+        result |= tObjVal[i];
+       // result = (int)tObjVal;
     }
-    result *= 0.03125f;
-    printf("%d",(int)result);
+  if  ( result >= 0x8000 ) {
+        result ^= 0xFFFF;
+        result += 1;
+        
+        result >>= 2;
+        result &= 0x3FFF; // 0b0011 1111 1111 1111 ?? 2?? ??
+        result *= 0.03125f;
+        printf("  -%d",(int)result);
+    } else {
+        result >>= 2;
+        result *= 0.03125f;
+        printf("  %d",(int)result);
+    }
 }
 /*
 void tAmbTempPrint(void) {
-    uint32_t result = 0;
+    
+    uint16_t result = 0;
     for (int i = 0; i <TEMP_RECEIVE_DATA_LENGHTH; i++) {
-        //result <<= 8;
-        //result |= tAmbVal[TEMP_RECEIVE_DATA_LENGHTH];
+        result <<= 8;
+        result |= (int)tAmbVal[i];
     }
-    result >>= 2;
-    result *= 0.03125f;
-    printf("%d",(int)result);
+    if  ( result >= 0x8000 ) {
+        result ^= 0xFFFF;
+        result += 1;
+        
+        result >>= 2;
+        result *= 0.03125f;
+        printf("  -%d",(int)result);
+    } else {
+        result >>= 2;
+        result *= 0.03125f;
+        printf("  %d",(int)result);
+    }
+
+    //printf("   %d+%d",(int)tAmbVal[0],(int)tAmbVal[1]);
 }
 */
 /*
@@ -163,11 +192,12 @@ void APP_I2CCallback(uintptr_t context )
 // *****************************************************************************
 // *****************************************************************************
 
+long temp = 0;
 int main ( void )
 {
     //APP_STATES state = APP_STATE_EEPROM_STATUS_VERIFY;
-    APP_STATES state = APP_STATE_EEPROM_WRITE;
     volatile APP_TRANSFER_STATUS transferStatus = APP_TRANSFER_STATUS_ERROR;
+    APP_STATES state = APP_STATE_EEPROM_WRITE;
     uint8_t ackData = 1;
 
     /* Initialize all modules */
@@ -175,8 +205,7 @@ int main ( void )
     printf("\r\n System Initialized \r\n");
     while ( true )
     {
-        state = APP_STATE_EEPROM_READ;
-        
+
         /* Check the application's current state. */
         switch (state)
         {
@@ -186,7 +215,7 @@ int main ( void )
                 SERCOM1_I2C_CallbackRegister( APP_I2CCallback, (uintptr_t)&transferStatus );
 
                /* Verify if EEPROM is ready to accept new requests */
-                transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
+                transferStatus = APP_TRANSFER_STATUS_SUCCESS;
                 SERCOM1_I2C_Write(TMR006_ADDR, &ackData, APP_ACK_DATA_LENGTH);
 
                 state = APP_STATE_EEPROM_WRITE;
@@ -198,7 +227,8 @@ int main ( void )
                 {
                     /* Write data to EEPROM */
                     transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                    SERCOM1_I2C_Write(TMR006_ADDR, &tmp006Init[0], APP_TRANSMIT_DATA_LENGTH);
+                    SERCOM1_I2C_Write(TMR006_ADDR, &tmp006Init[0], INIT_DATA_LENGTH);
+
                     state = APP_STATE_EEPROM_WAIT_WRITE_COMPLETE;
                 }
                 else if (transferStatus == APP_TRANSFER_STATUS_ERROR)
@@ -241,18 +271,33 @@ int main ( void )
             case APP_STATE_EEPROM_READ:
 
                 transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
+                
+                SERCOM1_I2C_WriteRead(TMR006_ADDR, &tObjLoad[1], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tObjVal[0], TEMP_RECEIVE_DATA_LENGHTH);
+
+                tObjTempPrint();
+               // tAmbTempPrint();
+          /*      
+                state = APP_STATE_EEPROM_WAIT_READ_COMPLETE;
+                temp = tDieVal[0];
+                temp <<= 8;
+                temp += tDieVal[1];
+                temp *= 0.03125f;                     
+                printf(" %ld", temp );
+           */     
+                
                 /* Read the data from the page written earlier */
-            /*   SERCOM1_I2C_Write(TMR006_ADDR, &ackData, APP_ACK_DATA_LENGTH);
+          /*     SERCOM1_I2C_Write(TMR006_ADDR, &ackData, APP_ACK_DATA_LENGTH);
                SERCOM1_I2C_Write(TMR006_Tamb_ADDR, &ackData, APP_ACK_DATA_LENGTH);
                SERCOM1_I2C_Write(TMR006_ADDR, &ackData, APP_ACK_DATA_LENGTH);
                SERCOM1_I2C_Read(tDieVal[0], &ackData, TEMP_RECEIVE_DATA_LENGHTH);
                SERCOM1_I2C_Read(tDieVal[1], &ackData, TEMP_RECEIVE_DATA_LENGHTH);
-*/
+
                SERCOM1_I2C_WriteRead(TMR006_ADDR, &tDieLoad[0], APP_RECEIVE_DUMMY_WRITE_LENGTH, &tDieVal[0], TEMP_RECEIVE_DATA_LENGHTH);
                tDieTempPrint();
                //printf("\r\n read sentence running \r\n");
                //printf("%d",temp);
                //putchar((unsigned char)temp);
+              */
                state = APP_STATE_EEPROM_WAIT_READ_COMPLETE;
                break;
 
@@ -294,7 +339,8 @@ int main ( void )
             }
             default:
                 break;
-        }
+            }
+            state = APP_STATE_EEPROM_READ;
         
     }
 }
