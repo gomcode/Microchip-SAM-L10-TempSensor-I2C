@@ -1,17 +1,16 @@
-/*******************************************************************************
-  SERCOM Universal Synchronous/Asynchrnous Receiver/Transmitter PLIB
+/******************************************************************************* External Interrupt Controller (EIC) PLIB
 
   Company
     Microchip Technology Inc.
 
   File Name
-    plib_sercom2_usart.h
+    plib_eic.h
 
   Summary
-    USART peripheral library interface.
+    EIC PLIB Header File.
 
   Description
-    This file defines the interface to the USART peripheral library. This
+    This file defines the interface to the EIC peripheral library. This
     library provides access to and control of the associated peripheral
     instance.
 
@@ -19,6 +18,7 @@
     None.
 *******************************************************************************/
 
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
@@ -41,17 +41,23 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+// DOM-IGNORE-END
 
-#ifndef PLIB_SERCOM2_USART_H // Guards against multiple inclusion
-#define PLIB_SERCOM2_USART_H
+/* Guards against multiple inclusion */
+#ifndef PLIB_EIC_H
+#define PLIB_EIC_H
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
+/* This section lists the other files that are included in this file.
+*/
 
-#include "plib_sercom_usart_common.h"
+#include "device.h"
+#include <stdbool.h>
+#include <stddef.h>
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus // Provide C++ Compatibility
@@ -63,54 +69,58 @@
 
 // *****************************************************************************
 // *****************************************************************************
+// Section: Data Types
+// *****************************************************************************
+// *****************************************************************************
+/* The following data type definitions are used by the functions in this
+    interface and should be considered part of it.
+*/
+/* EIC Pin Count */
+#define EXTINT_COUNT                        (8U)
+
+typedef enum
+{
+    /* External Interrupt Controller Pin 0 */
+    EIC_PIN_0 = 0,
+
+    EIC_PIN_MAX = 16
+
+} EIC_PIN;
+
+
+typedef void (*EIC_CALLBACK) (uintptr_t context);
+
+typedef struct
+{
+    /* External Interrupt Pin Callback Handler */
+    EIC_CALLBACK    callback;
+
+    /* External Interrupt Pin Client context */
+    uintptr_t       context;
+
+    /* External Interrupt Pin number */
+    EIC_PIN         eicPinNo;
+
+} EIC_CALLBACK_OBJ;
+
+
+// *****************************************************************************
+// *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
 // *****************************************************************************
+/* The following functions make up the methods (set of possible operations) of
+    this interface.
+*/
 
-void SERCOM2_USART_Initialize( void );
-
-bool SERCOM2_USART_SerialSetup( USART_SERIAL_SETUP * serialSetup, uint32_t clkFrequency );
-
-void SERCOM2_USART_TransmitterEnable( void );
-
-void SERCOM2_USART_TransmitterDisable( void );
-
-bool SERCOM2_USART_Write( void *buffer, const size_t size );
-
-bool SERCOM2_USART_TransmitComplete( void );
+void EIC_Initialize (void);
+void EIC_InterruptEnable (EIC_PIN pin);
+void EIC_InterruptDisable (EIC_PIN pin);
+void EIC_CallbackRegister(EIC_PIN pin, EIC_CALLBACK callback, uintptr_t context);
 
 
-bool SERCOM2_USART_WriteIsBusy( void );
-
-size_t SERCOM2_USART_WriteCountGet( void );
-
-void SERCOM2_USART_WriteCallbackRegister( SERCOM_USART_CALLBACK callback, uintptr_t context );
-
-
-void SERCOM2_USART_ReceiverEnable( void );
-
-void SERCOM2_USART_ReceiverDisable( void );
-
-bool SERCOM2_USART_Read( void *buffer, const size_t size );
-
-bool SERCOM2_USART_ReadIsBusy( void );
-
-size_t SERCOM2_USART_ReadCountGet( void );
-
-bool SERCOM2_USART_ReadAbort(void);
-
-void SERCOM2_USART_ReadCallbackRegister( SERCOM_USART_CALLBACK callback, uintptr_t context );
-
-USART_ERROR SERCOM2_USART_ErrorGet( void );
-
-uint32_t SERCOM2_USART_FrequencyGet( void );
-
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus  // Provide C++ Compatibility
-
-    }
-
+#ifdef __cplusplus // Provide C++ Compatibility
+}
 #endif
-// DOM-IGNORE-END
 
-#endif //PLIB_SERCOM2_USART_H
+#endif /* PLIB_EIC_H */

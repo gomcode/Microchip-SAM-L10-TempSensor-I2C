@@ -31,91 +31,140 @@
 #define LED_ON()                       LED_Clear()
 #define LED_OFF()                      LED_Set()
 
-#define TMR006_ADDR                            0x40 // 0b0100 0000
-#define TMR006_Tobj_ADDR                     0x00 // Tdie Register
-#define TMR006_Tamb_ADDR                    0x01 // Tamb Register
-#define TMR006_CONFIG_ADDR                 0x02 // Configuration Register
-
 #define APP_ACK_DATA_LENGTH                     1
 #define APP_RECEIVE_DUMMY_WRITE_LENGTH   1
 #define APP_TRANSMIT_DATA_LENGTH            2
 #define APP_RECEIVE_DATA_LENGTH                2
 
+#define TMR006_ADDR                            0x40 // 0b0100 0000
+#define TMR006_Tobj_ADDR                     0x00 // Tdie Register
+#define TMR006_Tamb_ADDR                    0x01 // Tamb Register
+#define TMR006_CONFIG_ADDR                 0x02 // Configuration Register
+#define TMR006_MID_ADDR                     0xFE // Manufacturer ID
+#define TMR006_DID_ADDR                      0xFF // Device ID
+
+#define TEMP_REQUEST_DATA_LENGHTH       6
+static uint8_t TMP006Load[TEMP_REQUEST_DATA_LENGHTH] =
+{
+    TMR006_ADDR,
+    TMR006_Tobj_ADDR,
+    TMR006_Tamb_ADDR,
+    TMR006_CONFIG_ADDR,
+    TMR006_MID_ADDR,
+    TMR006_DID_ADDR
+};
 
 #define INIT_DATA_LENGTH                      3
 static uint8_t tmp006Init[INIT_DATA_LENGTH] =
 {
-    //TMR006_ADDR,
     TMR006_CONFIG_ADDR,
     0x79, 0x00 // set to 0111 1001 (0000 0000)
 };  
 
-#define TEMP_REQUEST_DATA_LENGHTH       2
+#define RECEIVE_DATA_LENGHTH           2
+static uint8_t tObjVal[RECEIVE_DATA_LENGHTH];
+static uint8_t tAmbVal[RECEIVE_DATA_LENGHTH];
+static uint8_t ConfigVal[RECEIVE_DATA_LENGHTH];
+static uint8_t MIDVal[RECEIVE_DATA_LENGHTH];
+static uint8_t DIDVal[RECEIVE_DATA_LENGHTH];
 
-static uint8_t tObjLoad[TEMP_REQUEST_DATA_LENGHTH] =
-{
-   TMR006_ADDR,
-   TMR006_Tobj_ADDR
-   //TMR006_CONFIG_ADDR
-};
+int getAbit(uint16_t x, int n) { // getbit()
+  return (x & (1 << n)) >> n;
+}
 
-/*
-static uint8_t tAmbLoad[TEMP_REQUEST_DATA_LENGHTH] =
-{
-    //TMR006_ADDR,
-    TMR006_Tamb_ADDR
-};
-*/
-
-#define TEMP_RECEIVE_DATA_LENGHTH           2
-static uint8_t tObjVal[TEMP_RECEIVE_DATA_LENGHTH];
-//static uint8_t tAmbVal[TEMP_RECEIVE_DATA_LENGHTH];
+void binaryConv(uint16_t input) {
+    for (int i = 15; i >= 0; --i) { //8?? ???? ???
+        int result = input >> i & 1;
+        printf("%d", result);
+    }
+}
 
 void tObjTempPrint(void) {
     uint16_t result = 0;
-    for (int i = 0; i<TEMP_RECEIVE_DATA_LENGHTH; i++) {
+    for (int i = 0; i<RECEIVE_DATA_LENGHTH; i++) {
         result <<= 8;
-        result |= tObjVal[i];
+        result |= (int)tObjVal[i];
        // result = (int)tObjVal;
     }
+  printf("Tobj Temp : ");
+  binaryConv(result);
   if  ( result >= 0x8000 ) {
         result ^= 0xFFFF;
         result += 1;
         
         result >>= 2;
-        result &= 0x3FFF; // 0b0011 1111 1111 1111 ?? 2?? ??
-        result *= 0.03125f;
-        printf("  -%d",(int)result);
+        //result *= (float)0.03125f;
+        //result = (float)result*(float)0.03125;
+        printf("==-%d  ",(int)(result/(float)31250.0));
     } else {
         result >>= 2;
         result *= 0.03125f;
-        printf("  %d",(int)result);
+        printf("==%d  ",(int)result);
     }
+   // printf("\n");   
 }
-/*
+
 void tAmbTempPrint(void) {
     
     uint16_t result = 0;
-    for (int i = 0; i <TEMP_RECEIVE_DATA_LENGHTH; i++) {
+    for (int i = 0; i<RECEIVE_DATA_LENGHTH; i++) {
         result <<= 8;
         result |= (int)tAmbVal[i];
     }
+    printf("Tamb Temp : ");
+    binaryConv(result);
     if  ( result >= 0x8000 ) {
         result ^= 0xFFFF;
         result += 1;
         
         result >>= 2;
         result *= 0.03125f;
-        printf("  -%d",(int)result);
+        printf("==-%d  ",(int)result);
     } else {
         result >>= 2;
         result *= 0.03125f;
-        printf("  %d",(int)result);
+        printf("==%d  ",(int)result);
+    }
+    //printf("   %d+%d",(int)tAmbVal[0],(int)tAmbVal[1]);
+    //printf("\n");   
+}
+
+void ConfigPrint(void) {
+    uint16_t result = 0;
+    for (int i = 0; i<RECEIVE_DATA_LENGHTH; i++) {
+        result <<= 8;
+        result |= ConfigVal[i];
     }
 
-    //printf("   %d+%d",(int)tAmbVal[0],(int)tAmbVal[1]);
+    printf("Manufacturer ID : ");
+    binaryConv(result);
+    printf("==%d  ",(int)result);      
 }
-*/
+
+void MIDPrint(void) {
+    uint16_t result = 0;
+    for (int i = 0; i<RECEIVE_DATA_LENGHTH; i++) {
+        result <<= 8;
+        result |= MIDVal[i];
+    }
+
+    printf("Manufacturer ID : ");
+    binaryConv(result);
+    printf("==%d  ",(int)result);    
+}
+
+void DIDPrint(void) {
+    uint16_t result = 0;
+    for (int i = 0; i<RECEIVE_DATA_LENGHTH; i++) {
+        result <<= 8;
+        result |= DIDVal[i];
+    }
+
+    printf("Device ID : ");
+    binaryConv(result);
+    printf("==%d  \n",(int)result);    
+}
+
 /*
  * static uint8_t testTxData[APP_TRANSMIT_DATA_LENGTH] =
 {
@@ -192,6 +241,11 @@ void APP_I2CCallback(uintptr_t context )
 // *****************************************************************************
 // *****************************************************************************
 
+static void EIC_User_Handler(uintptr_t context)
+{
+    LED_Toggle();
+}
+
 long temp = 0;
 int main ( void )
 {
@@ -199,10 +253,13 @@ int main ( void )
     volatile APP_TRANSFER_STATUS transferStatus = APP_TRANSFER_STATUS_ERROR;
     APP_STATES state = APP_STATE_EEPROM_WRITE;
     uint8_t ackData = 1;
+    EIC_CallbackRegister(EIC_PIN_21,EIC_User_Handler, 0);
+
 
     /* Initialize all modules */
     SYS_Initialize ( NULL );
     printf("\r\n System Initialized \r\n");
+
     while ( true )
     {
 
@@ -272,10 +329,23 @@ int main ( void )
 
                 transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
                 
-                SERCOM1_I2C_WriteRead(TMR006_ADDR, &tObjLoad[1], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tObjVal[0], TEMP_RECEIVE_DATA_LENGHTH);
 
+                
+                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[2], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tAmbVal[0], RECEIVE_DATA_LENGHTH);
+                tAmbTempPrint();
+                
+                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[3], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &ConfigVal[0], RECEIVE_DATA_LENGHTH);
+                ConfigPrint();
+                
+                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[4], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &MIDVal[0], RECEIVE_DATA_LENGHTH);
+                MIDPrint();
+                
+                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[5], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &DIDVal[0], RECEIVE_DATA_LENGHTH);
+                DIDPrint();
+                
+                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[1], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tObjVal[0], RECEIVE_DATA_LENGHTH);
                 tObjTempPrint();
-               // tAmbTempPrint();
+                              
           /*      
                 state = APP_STATE_EEPROM_WAIT_READ_COMPLETE;
                 temp = tDieVal[0];
