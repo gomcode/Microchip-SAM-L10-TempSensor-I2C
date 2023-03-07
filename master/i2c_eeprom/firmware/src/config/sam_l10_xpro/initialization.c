@@ -169,7 +169,8 @@ void SYS_Initialize ( void* data )
 
     EVSYS_Initialize();
 
-
+    EIC_Initialize();
+    EIC_InterruptEnable (EIC_PIN_21);
 
 
 

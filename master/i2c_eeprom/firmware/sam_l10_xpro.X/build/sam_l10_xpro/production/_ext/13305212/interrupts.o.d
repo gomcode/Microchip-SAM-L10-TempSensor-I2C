@@ -86,7 +86,8 @@ build/sam_l10_xpro/production/_ext/13305212/interrupts.o: \
  ../src/config/sam_l10_xpro/peripheral/port/plib_port.h \
  ../src/config/sam_l10_xpro/peripheral/clock/plib_clock.h \
  ../src/config/sam_l10_xpro/peripheral/nvic/plib_nvic.h \
- ../src/config/sam_l10_xpro/peripheral/pm/plib_pm.h
+ ../src/config/sam_l10_xpro/peripheral/pm/plib_pm.h \
+ ../src/config/sam_l10_xpro/peripheral/eic/plib_eic.h
 
 ../src/config/sam_l10_xpro/device_vectors.h:
 
@@ -261,3 +262,5 @@ build/sam_l10_xpro/production/_ext/13305212/interrupts.o: \
 ../src/config/sam_l10_xpro/peripheral/nvic/plib_nvic.h:
 
 ../src/config/sam_l10_xpro/peripheral/pm/plib_pm.h:
+
+../src/config/sam_l10_xpro/peripheral/eic/plib_eic.h:

@@ -82,7 +82,7 @@ void EIC_Initialize (void)
     /* NMI Control register */
 
     /* Interrupt sense type and filter control for EXTINT channels 0 to (8-1) */
-    EIC_REGS->EIC_CONFIG =  EIC_CONFIG_SENSE0_RISE 
+    EIC_REGS->EIC_CONFIG =  EIC_CONFIG_SENSE0_NONE 
         | EIC_CONFIG_SENSE1_NONE 
         | EIC_CONFIG_SENSE2_NONE 
         | EIC_CONFIG_SENSE3_NONE 
@@ -98,8 +98,8 @@ void EIC_Initialize (void)
     /* External Interrupt enable*/
     EIC_REGS->EIC_INTENSET = 0x1;
     /* Callbacks for enabled interrupts */
-    eicCallbackObject[0].eicPinNo = EIC_PIN_0;
-    eicCallbackObject[1].eicPinNo = EIC_PIN_MAX;
+    eicCallbackObject[0].eicPinNo = EIC_PIN_MAX;
+    eicCallbackObject[1].eicPinNo = EIC_PIN_21;
     eicCallbackObject[2].eicPinNo = EIC_PIN_MAX;
     eicCallbackObject[3].eicPinNo = EIC_PIN_MAX;
     eicCallbackObject[4].eicPinNo = EIC_PIN_MAX;
