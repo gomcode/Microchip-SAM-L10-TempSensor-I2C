@@ -241,11 +241,6 @@ void APP_I2CCallback(uintptr_t context )
 // *****************************************************************************
 // *****************************************************************************
 
-static void EIC_User_Handler(uintptr_t context)
-{
-    LED_Toggle();
-}
-
 long temp = 0;
 int main ( void )
 {
@@ -253,7 +248,7 @@ int main ( void )
     volatile APP_TRANSFER_STATUS transferStatus = APP_TRANSFER_STATUS_ERROR;
     APP_STATES state = APP_STATE_EEPROM_WRITE;
     uint8_t ackData = 1;
-    EIC_CallbackRegister(EIC_PIN_21,EIC_User_Handler, 0);
+
 
 
     /* Initialize all modules */
@@ -417,4 +412,3 @@ int main ( void )
 /*******************************************************************************
  End of File
 */
-
