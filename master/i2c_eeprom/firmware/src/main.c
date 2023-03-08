@@ -240,20 +240,13 @@ void APP_I2CCallback(uintptr_t context )
 // Section: Main Entry Point
 // *****************************************************************************
 // *****************************************************************************
-
-static void EIC_User_Handler(uintptr_t context)
-{
-    LED_Toggle();
-}
-
+static void EIC_User_Handler(uintptr_t context);
 long temp = 0;
 int main ( void )
-
-
 {
-    //APP_STATES state = APP_STATE_EEPROM_STATUS_VERIFY;
+    APP_STATES state = APP_STATE_EEPROM_STATUS_VERIFY;
     volatile APP_TRANSFER_STATUS transferStatus = APP_TRANSFER_STATUS_ERROR;
-    APP_STATES state = APP_STATE_EEPROM_WRITE;
+    state = APP_STATE_EEPROM_WRITE;
 
     uint8_t ackData = 1;
     EIC_CallbackRegister(EIC_PIN_21,EIC_User_Handler, 0);
@@ -334,21 +327,7 @@ int main ( void )
                 transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
                 
 
-                
-                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[2], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tAmbVal[0], RECEIVE_DATA_LENGHTH);
-                tAmbTempPrint();
-                
-                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[3], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &ConfigVal[0], RECEIVE_DATA_LENGHTH);
-                ConfigPrint();
-                
-                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[4], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &MIDVal[0], RECEIVE_DATA_LENGHTH);
-                MIDPrint();
-                
-                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[5], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &DIDVal[0], RECEIVE_DATA_LENGHTH);
-                DIDPrint();
-                
-                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[1], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tObjVal[0], RECEIVE_DATA_LENGHTH);
-                tObjTempPrint();
+
                               
           /*      
                 state = APP_STATE_EEPROM_WAIT_READ_COMPLETE;
@@ -417,6 +396,26 @@ int main ( void )
             state = APP_STATE_EEPROM_READ;
         
     }
+}
+
+static void EIC_User_Handler(uintptr_t context)
+{
+    LED_Toggle();
+                    
+                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[2], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tAmbVal[0], RECEIVE_DATA_LENGHTH);
+                tAmbTempPrint();
+                
+                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[3], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &ConfigVal[0], RECEIVE_DATA_LENGHTH);
+                ConfigPrint();
+                
+                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[4], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &MIDVal[0], RECEIVE_DATA_LENGHTH);
+                MIDPrint();
+                
+                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[5], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &DIDVal[0], RECEIVE_DATA_LENGHTH);
+                DIDPrint();
+                
+                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[1], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tObjVal[0], RECEIVE_DATA_LENGHTH);
+                tObjTempPrint();
 }
 /*******************************************************************************
  End of File

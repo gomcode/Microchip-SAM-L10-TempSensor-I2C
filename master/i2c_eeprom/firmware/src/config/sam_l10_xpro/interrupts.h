@@ -60,7 +60,10 @@
 void Reset_Handler (void);
 void NonMaskableInt_Handler (void);
 void HardFault_Handler (void);
+void EIC_EXTINT_1_InterruptHandler (void);
+void NVMCTRL_InterruptHandler (void);
 void SERCOM1_I2C_InterruptHandler (void);
+void SERCOM2_USART_InterruptHandler (void);
 
 
 

@@ -1,20 +1,20 @@
 /*******************************************************************************
-  Interface definition of EVSYS PLIB.
+  Board Support Package Implementation
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_evsys.h
+    bsp.c
 
   Summary:
-    Interface definition of the Event System Plib (EVSYS).
+    Board Support Package implementation.
 
   Description:
-    This file defines the interface for the EVSYS Plib.
-    It allows user to setup event generators and users.
+    This file contains routines that implement the board support package
 *******************************************************************************/
 
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
@@ -37,49 +37,47 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-
-#ifndef EVSYS_H    // Guards against multiple inclusion
-#define EVSYS_H
-
-#include "device.h"
-#include <stdint.h>
-#include <stddef.h>
-
-#ifdef __cplusplus // Provide C++ Compatibility
- extern "C" {
-#endif
-
+// DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: Interface
+// Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
 
+#include "bsp.h"
 
-typedef enum
+// *****************************************************************************
+// *****************************************************************************
+// *****************************************************************************
+// Section: Interface Routines
+// *****************************************************************************
+// *****************************************************************************
+
+// *****************************************************************************
+/* Function:
+    void BSP_Initialize(void)
+
+  Summary:
+    Performs the necessary actions to initialize a board
+
+  Description:
+    This function initializes the LED, Switch and other ports on the board.
+    This function must be called by the user before using any APIs present in
+    this BSP.
+
+  Remarks:
+    Refer to bsp.h for usage information.
+*/
+
+void BSP_Initialize(void )
 {
 
-   EVSYS_CHANNEL_1 = 1,
 
 
 
+}
 
-
-
-
-
-} EVSYS_CHANNEL;
-
-/***************************** EVSYS API *******************************/
-void EVSYS_Initialize( void );
-void EVSYS_GeneratorEnable(EVSYS_CHANNEL channel, uint8_t generator);
-void EVSYS_GeneratorDisable(EVSYS_CHANNEL channel);
-void EVSYS_UserEnable(EVSYS_CHANNEL channel, uint8_t user);
-void EVSYS_UserDisable(uint8_t user);
-
-#ifdef __cplusplus // Provide C++ Compatibility
- }
-#endif
-
-#endif
+/*******************************************************************************
+ End of File
+*/

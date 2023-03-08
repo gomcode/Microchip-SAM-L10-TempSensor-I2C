@@ -104,6 +104,7 @@ typedef enum
     NVMCTRL_SECURE_MEMORY_REGION_BOOTLOADER = NVMCTRL_SULCK_BS_Msk,
 } NVMCTRL_SECURE_MEMORY_REGION;
 
+typedef void (*NVMCTRL_CALLBACK)(uintptr_t context);
 
 void NVMCTRL_Initialize(void);
 
@@ -126,6 +127,7 @@ void NVMCTRL_SecureRegionLock (NVMCTRL_SECURE_MEMORY_REGION region);
 void NVMCTRL_SecureRegionUnlock (NVMCTRL_SECURE_MEMORY_REGION region);
     
 
+void NVMCTRL_CallbackRegister ( NVMCTRL_CALLBACK callback, uintptr_t context );
 
 void NVMCTRL_CacheInvalidate ( void );
 

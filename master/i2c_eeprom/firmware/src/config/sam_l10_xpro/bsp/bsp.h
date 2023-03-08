@@ -1,21 +1,18 @@
-/******************************************************************************* External Interrupt Controller (EIC) PLIB
+/*******************************************************************************
+  Board Support Package Header File.
 
-  Company
+  Company:
     Microchip Technology Inc.
 
-  File Name
-    plib_eic.h
+  File Name:
+    bsp.h
 
-  Summary
-    EIC PLIB Header File.
+  Summary:
+    Board Support Package Header File 
 
-  Description
-    This file defines the interface to the EIC peripheral library. This
-    library provides access to and control of the associated peripheral
-    instance.
-
-  Remarks:
-    None.
+  Description:
+    This file contains constants, macros, type definitions and function
+    declarations 
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -43,65 +40,36 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 
-/* Guards against multiple inclusion */
-#ifndef PLIB_EIC_H
-#define PLIB_EIC_H
+#ifndef _BSP_H
+#define _BSP_H
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-/* This section lists the other files that are included in this file.
-*/
 
-#include "device.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 #include <stdbool.h>
-#include <stddef.h>
-
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus // Provide C++ Compatibility
-
-    extern "C" {
-
-#endif
-// DOM-IGNORE-END
+#include "device.h"
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: Data Types
+// Section: BSP Macros
 // *****************************************************************************
 // *****************************************************************************
-/* The following data type definitions are used by the functions in this
-    interface and should be considered part of it.
-*/
-/* EIC Pin Count */
-#define EXTINT_COUNT                        (8U)
-
-typedef enum
-{
-    /* External Interrupt Controller Pin 1 */
-    EIC_PIN_21 = 1,
-
-    EIC_PIN_MAX = 16
-
-} EIC_PIN;
 
 
-typedef void (*EIC_CALLBACK) (uintptr_t context);
 
-typedef struct
-{
-    /* External Interrupt Pin Callback Handler */
-    EIC_CALLBACK    callback;
+/*** SWITCH Macros for SWITCH ***/
+#define SWITCH_Get()     ((PORT_REGS->GROUP[0].PORT_IN >> 27) & 0x01)
+#define SWITCH_STATE_PRESSED   0
+#define SWITCH_STATE_RELEASED  1
 
-    /* External Interrupt Pin Client context */
-    uintptr_t       context;
 
-    /* External Interrupt Pin number */
-    EIC_PIN         eicPinNo;
 
-} EIC_CALLBACK_OBJ;
 
 
 // *****************************************************************************
@@ -109,18 +77,42 @@ typedef struct
 // Section: Interface Routines
 // *****************************************************************************
 // *****************************************************************************
-/* The following functions make up the methods (set of possible operations) of
-    this interface.
+
+// *****************************************************************************
+/* Function:
+    void BSP_Initialize(void)
+
+  Summary:
+    Performs the necessary actions to initialize a board
+
+  Description:
+    This function initializes the LED and Switch ports on the board.  This
+    function must be called by the user before using any APIs present on this
+    BSP.
+
+  Precondition:
+    None.
+
+  Parameters:
+    None
+
+  Returns:
+    None.
+
+  Example:
+    <code>
+    //Initialize the BSP
+    BSP_Initialize();
+    </code>
+
+  Remarks:
+    None
 */
 
-void EIC_Initialize (void);
-void EIC_InterruptEnable (EIC_PIN pin);
-void EIC_InterruptDisable (EIC_PIN pin);
-void EIC_CallbackRegister(EIC_PIN pin, EIC_CALLBACK callback, uintptr_t context);
+void BSP_Initialize(void);
 
+#endif // _BSP_H
 
-#ifdef __cplusplus // Provide C++ Compatibility
-}
-#endif
-
-#endif /* PLIB_EIC_H */
+/*******************************************************************************
+ End of File
+*/

@@ -87,7 +87,22 @@ build/sam_l10_xpro/production/_ext/13305212/interrupts.o: \
  ../src/config/sam_l10_xpro/peripheral/clock/plib_clock.h \
  ../src/config/sam_l10_xpro/peripheral/nvic/plib_nvic.h \
  ../src/config/sam_l10_xpro/peripheral/pm/plib_pm.h \
- ../src/config/sam_l10_xpro/peripheral/eic/plib_eic.h
+ ../src/config/sam_l10_xpro/peripheral/eic/plib_eic.h \
+ ../src/config/sam_l10_xpro/driver/i2c/drv_i2c.h \
+ ../src/config/sam_l10_xpro/driver/i2c/drv_i2c_definitions.h \
+ ../src/config/sam_l10_xpro/system/system_module.h \
+ ../src/config/sam_l10_xpro/system/system_common.h \
+ ../src/config/sam_l10_xpro/driver/driver.h \
+ ../src/config/sam_l10_xpro/driver/driver_common.h \
+ ../src/config/sam_l10_xpro/system/int/sys_int.h \
+ ../src/config/sam_l10_xpro/system/int/sys_int_mapping.h \
+ ../src/config/sam_l10_xpro/driver/i2c/src/drv_i2c_local.h \
+ ../src/config/sam_l10_xpro/driver/i2c/drv_i2c_definitions.h \
+ ../src/config/sam_l10_xpro/osal/osal.h \
+ ../src/config/sam_l10_xpro/configuration.h \
+ ../src/config/sam_l10_xpro/osal/osal_definitions.h \
+ ../src/config/sam_l10_xpro/osal/osal_impl_basic.h \
+ ../src/config/sam_l10_xpro/bsp/bsp.h
 
 ../src/config/sam_l10_xpro/device_vectors.h:
 
@@ -264,3 +279,33 @@ build/sam_l10_xpro/production/_ext/13305212/interrupts.o: \
 ../src/config/sam_l10_xpro/peripheral/pm/plib_pm.h:
 
 ../src/config/sam_l10_xpro/peripheral/eic/plib_eic.h:
+
+../src/config/sam_l10_xpro/driver/i2c/drv_i2c.h:
+
+../src/config/sam_l10_xpro/driver/i2c/drv_i2c_definitions.h:
+
+../src/config/sam_l10_xpro/system/system_module.h:
+
+../src/config/sam_l10_xpro/system/system_common.h:
+
+../src/config/sam_l10_xpro/driver/driver.h:
+
+../src/config/sam_l10_xpro/driver/driver_common.h:
+
+../src/config/sam_l10_xpro/system/int/sys_int.h:
+
+../src/config/sam_l10_xpro/system/int/sys_int_mapping.h:
+
+../src/config/sam_l10_xpro/driver/i2c/src/drv_i2c_local.h:
+
+../src/config/sam_l10_xpro/driver/i2c/drv_i2c_definitions.h:
+
+../src/config/sam_l10_xpro/osal/osal.h:
+
+../src/config/sam_l10_xpro/configuration.h:
+
+../src/config/sam_l10_xpro/osal/osal_definitions.h:
+
+../src/config/sam_l10_xpro/osal/osal_impl_basic.h:
+
+../src/config/sam_l10_xpro/bsp/bsp.h:

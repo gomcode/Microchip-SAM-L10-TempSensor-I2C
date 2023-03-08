@@ -1,8 +1,6 @@
-build/sam_l10_xpro/production/_ext/13305212/initialization.o: \
- ../src/config/sam_l10_xpro/initialization.c \
- ../src/config/sam_l10_xpro/definitions.h \
- ../src/config/sam_l10_xpro/peripheral/nvmctrl/plib_nvmctrl.h \
- ../src/config/sam_l10_xpro/device.h \
+build/sam_l10_xpro/production/_ext/257244372/bsp.o: \
+ ../src/config/sam_l10_xpro/bsp/bsp.c \
+ ../src/config/sam_l10_xpro/bsp/bsp.h ../src/config/sam_l10_xpro/device.h \
  ../src/packs/ATSAML10E16A_DFP/saml10e16a.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/core_cm23.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_version.h \
@@ -75,36 +73,9 @@ build/sam_l10_xpro/production/_ext/13305212/initialization.o: \
  ../src/config/sam_l10_xpro/device_cache.h \
  ../src/config/sam_l10_xpro/device.h \
  ../src/config/sam_l10_xpro/toolchain_specifics.h \
- ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
- ../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom2_usart.h \
- ../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom_usart_common.h \
- ../src/config/sam_l10_xpro/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h \
- ../src/config/sam_l10_xpro/peripheral/sercom/i2c_master/plib_sercom_i2c_master_common.h \
- ../src/config/sam_l10_xpro/peripheral/evsys/plib_evsys.h \
- ../src/config/sam_l10_xpro/peripheral/port/plib_port.h \
- ../src/config/sam_l10_xpro/peripheral/clock/plib_clock.h \
- ../src/config/sam_l10_xpro/peripheral/nvic/plib_nvic.h \
- ../src/config/sam_l10_xpro/peripheral/pm/plib_pm.h \
- ../src/config/sam_l10_xpro/peripheral/eic/plib_eic.h \
- ../src/config/sam_l10_xpro/driver/i2c/drv_i2c.h \
- ../src/config/sam_l10_xpro/driver/i2c/drv_i2c_definitions.h \
- ../src/config/sam_l10_xpro/system/system_module.h \
- ../src/config/sam_l10_xpro/system/system_common.h \
- ../src/config/sam_l10_xpro/driver/driver.h \
- ../src/config/sam_l10_xpro/driver/driver_common.h \
- ../src/config/sam_l10_xpro/system/int/sys_int.h \
- ../src/config/sam_l10_xpro/system/int/sys_int_mapping.h \
- ../src/config/sam_l10_xpro/driver/i2c/src/drv_i2c_local.h \
- ../src/config/sam_l10_xpro/driver/i2c/drv_i2c_definitions.h \
- ../src/config/sam_l10_xpro/osal/osal.h \
- ../src/config/sam_l10_xpro/configuration.h \
- ../src/config/sam_l10_xpro/osal/osal_definitions.h \
- ../src/config/sam_l10_xpro/osal/osal_impl_basic.h \
- ../src/config/sam_l10_xpro/bsp/bsp.h
+ ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h
 
-../src/config/sam_l10_xpro/definitions.h:
-
-../src/config/sam_l10_xpro/peripheral/nvmctrl/plib_nvmctrl.h:
+../src/config/sam_l10_xpro/bsp/bsp.h:
 
 ../src/config/sam_l10_xpro/device.h:
 
@@ -253,53 +224,3 @@ build/sam_l10_xpro/production/_ext/13305212/initialization.o: \
 ../src/config/sam_l10_xpro/toolchain_specifics.h:
 
 ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h:
-
-../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom2_usart.h:
-
-../src/config/sam_l10_xpro/peripheral/sercom/usart/plib_sercom_usart_common.h:
-
-../src/config/sam_l10_xpro/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h:
-
-../src/config/sam_l10_xpro/peripheral/sercom/i2c_master/plib_sercom_i2c_master_common.h:
-
-../src/config/sam_l10_xpro/peripheral/evsys/plib_evsys.h:
-
-../src/config/sam_l10_xpro/peripheral/port/plib_port.h:
-
-../src/config/sam_l10_xpro/peripheral/clock/plib_clock.h:
-
-../src/config/sam_l10_xpro/peripheral/nvic/plib_nvic.h:
-
-../src/config/sam_l10_xpro/peripheral/pm/plib_pm.h:
-
-../src/config/sam_l10_xpro/peripheral/eic/plib_eic.h:
-
-../src/config/sam_l10_xpro/driver/i2c/drv_i2c.h:
-
-../src/config/sam_l10_xpro/driver/i2c/drv_i2c_definitions.h:
-
-../src/config/sam_l10_xpro/system/system_module.h:
-
-../src/config/sam_l10_xpro/system/system_common.h:
-
-../src/config/sam_l10_xpro/driver/driver.h:
-
-../src/config/sam_l10_xpro/driver/driver_common.h:
-
-../src/config/sam_l10_xpro/system/int/sys_int.h:
-
-../src/config/sam_l10_xpro/system/int/sys_int_mapping.h:
-
-../src/config/sam_l10_xpro/driver/i2c/src/drv_i2c_local.h:
-
-../src/config/sam_l10_xpro/driver/i2c/drv_i2c_definitions.h:
-
-../src/config/sam_l10_xpro/osal/osal.h:
-
-../src/config/sam_l10_xpro/configuration.h:
-
-../src/config/sam_l10_xpro/osal/osal_definitions.h:
-
-../src/config/sam_l10_xpro/osal/osal_impl_basic.h:
-
-../src/config/sam_l10_xpro/bsp/bsp.h:

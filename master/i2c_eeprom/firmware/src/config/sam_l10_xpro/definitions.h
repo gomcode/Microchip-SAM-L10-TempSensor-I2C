@@ -58,6 +58,8 @@
 #include "peripheral/nvic/plib_nvic.h"
 #include "peripheral/pm/plib_pm.h"
 #include "peripheral/eic/plib_eic.h"
+#include "driver/i2c/drv_i2c.h"
+#include "bsp/bsp.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility

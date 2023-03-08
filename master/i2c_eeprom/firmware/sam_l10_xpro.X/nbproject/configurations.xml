@@ -6,6 +6,9 @@
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f2" displayName="sam_l10_xpro" projectFiles="true">
+          <logicalFolder name="bsp" displayName="bsp" projectFiles="true">
+            <itemPath>../src/config/sam_l10_xpro/bsp/bsp.h</itemPath>
+          </logicalFolder>
           <logicalFolder name="driver" displayName="driver" projectFiles="true">
             <logicalFolder name="i2c" displayName="i2c" projectFiles="true">
               <itemPath>../src/config/sam_l10_xpro/driver/i2c/drv_i2c_definitions.h</itemPath>
@@ -146,56 +149,6 @@
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/tz_context.h</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="DSP" displayName="DSP" projectFiles="true">
-              <logicalFolder name="Include" displayName="Include" projectFiles="true">
-                <logicalFolder name="dsp" displayName="dsp" projectFiles="true">
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/matrix_functions_f16.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/matrix_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/statistics_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/controller_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/none.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/support_functions_f16.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/distance_functions_f16.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/basic_math_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/utils.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/distance_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/transform_functions_f16.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/controller_functions_f16.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/support_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/filtering_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/quaternion_math_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/basic_math_functions_f16.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/fast_math_functions_f16.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/statistics_functions_f16.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/interpolation_functions_f16.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/svm_defines.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/complex_math_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/bayes_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/fast_math_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/interpolation_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/transform_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/svm_functions_f16.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/filtering_functions_f16.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/bayes_functions_f16.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/svm_functions.h</itemPath>
-                  <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/dsp/complex_math_functions_f16.h</itemPath>
-                </logicalFolder>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_const_structs.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_math_types_f16.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_math_memory.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_helium_utils.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_mve_tables_f16.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_common_tables_f16.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_common_tables.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_math_types.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_math_f16.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_vec_math_f16.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_math.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_const_structs_f16.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_vec_math.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_mve_tables.h</itemPath>
-              </logicalFolder>
-            </logicalFolder>
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
@@ -222,6 +175,9 @@
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1" displayName="sam_l10_xpro" projectFiles="true">
+          <logicalFolder name="bsp" displayName="bsp" projectFiles="true">
+            <itemPath>../src/config/sam_l10_xpro/bsp/bsp.c</itemPath>
+          </logicalFolder>
           <logicalFolder name="driver" displayName="driver" projectFiles="true">
             <logicalFolder name="i2c" displayName="i2c" projectFiles="true">
               <itemPath>../src/config/sam_l10_xpro/driver/i2c/src/drv_i2c.c</itemPath>
@@ -298,7 +254,6 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../src/packs/CMSIS/CMSIS/DSP/Lib/GCC/libarm_ARMv8MBLl_math.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>

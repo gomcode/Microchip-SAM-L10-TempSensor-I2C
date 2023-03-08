@@ -57,10 +57,30 @@
 // *****************************************************************************
 // *****************************************************************************
 
+NVMCTRL_CALLBACK nvmctrlCallbackFunc;
+
+uintptr_t nvmctrlContext;
+
+void NVMCTRL_CallbackRegister( NVMCTRL_CALLBACK callback, uintptr_t context )
+{
+    /* Register callback function */
+    nvmctrlCallbackFunc = callback;
+    nvmctrlContext = context;
+}
+
+void NVMCTRL_InterruptHandler(void)
+{
+    NVMCTRL_REGS->NVMCTRL_INTENCLR = NVMCTRL_INTENCLR_DONE_Msk;
+
+    if(nvmctrlCallbackFunc != NULL)
+    {
+        nvmctrlCallbackFunc(nvmctrlContext);
+    }
+}
 
 void NVMCTRL_Initialize(void)
 {
-    NVMCTRL_REGS->NVMCTRL_CTRLB = NVMCTRL_CTRLB_READMODE_NO_MISS_PENALTY | NVMCTRL_CTRLB_SLEEPPRM_WAKEONACCESS | NVMCTRL_CTRLB_RWS(1U) ;
+    NVMCTRL_REGS->NVMCTRL_CTRLB = NVMCTRL_CTRLB_READMODE_NO_MISS_PENALTY | NVMCTRL_CTRLB_SLEEPPRM_WAKEUPINSTANT | NVMCTRL_CTRLB_RWS(1U) ;
     NVMCTRL_REGS->NVMCTRL_CTRLC = NVMCTRL_CTRLC_MANW_Msk;
 }
 
@@ -100,6 +120,7 @@ bool NVMCTRL_PageWrite( uint32_t *data, const uint32_t address )
 
     NVMCTRL_REGS->NVMCTRL_CTRLA = NVMCTRL_CTRLA_CMD_WP_Val | NVMCTRL_CTRLA_CMDEX_KEY;
 
+    NVMCTRL_REGS->NVMCTRL_INTENSET = NVMCTRL_INTENSET_DONE_Msk;
     return true;
 }
 
@@ -115,6 +136,7 @@ bool NVMCTRL_RowErase( uint32_t address )
 
     NVMCTRL_REGS->NVMCTRL_CTRLA = NVMCTRL_CTRLA_CMD_ER_Val | NVMCTRL_CTRLA_CMDEX_KEY;
 
+    NVMCTRL_REGS->NVMCTRL_INTENSET = NVMCTRL_INTENSET_DONE_Msk;
     return true;
 }
 
@@ -150,6 +172,7 @@ bool NVMCTRL_PageBufferCommit( const uint32_t address)
 
     NVMCTRL_REGS->NVMCTRL_CTRLA = NVMCTRL_CTRLA_CMD_WP_Val | NVMCTRL_CTRLA_CMDEX_KEY;
 
+    NVMCTRL_REGS->NVMCTRL_INTENSET = NVMCTRL_INTENSET_DONE_Msk;
 
     return true;
 }

@@ -83,7 +83,7 @@ void EIC_Initialize (void)
 
     /* Interrupt sense type and filter control for EXTINT channels 0 to (8-1) */
     EIC_REGS->EIC_CONFIG =  EIC_CONFIG_SENSE0_NONE 
-        | EIC_CONFIG_SENSE1_NONE 
+        | EIC_CONFIG_SENSE1_RISE | EIC_CONFIG_FILTEN1_Msk
         | EIC_CONFIG_SENSE2_NONE 
         | EIC_CONFIG_SENSE3_NONE 
         | EIC_CONFIG_SENSE4_NONE 
@@ -91,12 +91,16 @@ void EIC_Initialize (void)
         | EIC_CONFIG_SENSE6_NONE 
         | EIC_CONFIG_SENSE7_NONE ;
 
+    /* External Interrupt Asynchronous Mode enable */
+    EIC_REGS->EIC_ASYNCH = 0x2;
 
 
+    /* Event Control Output enable */
+    EIC_REGS->EIC_EVCTRL = 0x2;
 
 
     /* External Interrupt enable*/
-    EIC_REGS->EIC_INTENSET = 0x1;
+    EIC_REGS->EIC_INTENSET = 0x2;
     /* Callbacks for enabled interrupts */
     eicCallbackObject[0].eicPinNo = EIC_PIN_MAX;
     eicCallbackObject[1].eicPinNo = EIC_PIN_21;
@@ -146,6 +150,18 @@ void EIC_EXTINT_0_InterruptHandler(void)
     if ((eicCallbackObject[0].callback != NULL))
     {
         eicCallbackObject[0].callback(eicCallbackObject[0].context);
+    }
+
+}
+void EIC_EXTINT_1_InterruptHandler(void)
+{
+    /* Clear interrupt flag */
+    EIC_REGS->EIC_INTFLAG = (1UL << 1);
+    (void)EIC_REGS->EIC_INTFLAG;
+    /* Find any associated callback entries in the callback table */
+    if ((eicCallbackObject[1].callback != NULL))
+    {
+        eicCallbackObject[1].callback(eicCallbackObject[1].context);
     }
 
 }
