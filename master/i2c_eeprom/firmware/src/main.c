@@ -58,7 +58,7 @@ static uint8_t TMP006Load[TEMP_REQUEST_DATA_LENGHTH] =
 static uint8_t tmp006Init[INIT_DATA_LENGTH] =
 {
     TMR006_CONFIG_ADDR,
-    0x79, 0x00 // set to 0111 1001 (0000 0000)
+    0x75, 0x00 // set to 0111 0101 (0000 0000)
 };  
 
 #define RECEIVE_DATA_LENGHTH           2
@@ -73,7 +73,7 @@ int getAbit(uint16_t x, int n) { // getbit()
 }
 
 void binaryConv(uint16_t input) {
-    for (int i = 15; i >= 0; --i) { //8?? ???? ???
+    for (int i = 16; i > 0; i--) { //8?? ???? ???
         int result = input >> i & 1;
         printf("%d", result);
     }
@@ -136,7 +136,7 @@ void ConfigPrint(void) {
         result |= ConfigVal[i];
     }
 
-    printf("Manufacturer ID : ");
+    printf("Configuration Reg. : ");
     binaryConv(result);
     printf("==%d  ",(int)result);      
 }
@@ -326,7 +326,7 @@ int main ( void )
 
                 transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
                 
-
+                    //EIC_User_Handler(0);
 
                               
           /*      
