@@ -26,7 +26,8 @@
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include <stdio.h>
-#include "definitions.h"                // SYS function prototypes
+#include "definitions.h"
+#include "tmp006.h"                // SYS function prototypes
 #include <string.h>
 #define LED_ON()                       LED_Clear()
 #define LED_OFF()                      LED_Set()
@@ -37,7 +38,7 @@
 #define APP_RECEIVE_DATA_LENGTH                2
 
 #define TMR006_ADDR                            0x40 // 0b0100 0000
-#define TMR006_Tobj_ADDR                     0x00 // Tdie Register
+#define TMR006_Vobj_ADDR                     0x00 // Tdie Register
 #define TMR006_Tamb_ADDR                    0x01 // Tamb Register
 #define TMR006_CONFIG_ADDR                 0x02 // Configuration Register
 #define TMR006_MID_ADDR                     0xFE // Manufacturer ID
@@ -47,7 +48,7 @@
 static uint8_t TMP006Load[TEMP_REQUEST_DATA_LENGHTH] =
 {
     TMR006_ADDR,
-    TMR006_Tobj_ADDR,
+    TMR006_Vobj_ADDR,
     TMR006_Tamb_ADDR,
     TMR006_CONFIG_ADDR,
     TMR006_MID_ADDR,
@@ -62,11 +63,33 @@ static uint8_t tmp006Init[INIT_DATA_LENGTH] =
 };  
 
 #define RECEIVE_DATA_LENGHTH           2
-static uint8_t tObjVal[RECEIVE_DATA_LENGHTH];
-static uint8_t tAmbVal[RECEIVE_DATA_LENGHTH];
-static uint8_t ConfigVal[RECEIVE_DATA_LENGHTH];
-static uint8_t MIDVal[RECEIVE_DATA_LENGHTH];
-static uint8_t DIDVal[RECEIVE_DATA_LENGHTH];
+static uint8_t vObjRaw[RECEIVE_DATA_LENGHTH];
+static uint8_t tAmbRaw[RECEIVE_DATA_LENGHTH];
+static uint8_t ConfigRaw[RECEIVE_DATA_LENGHTH];
+static uint8_t MIDRaw[RECEIVE_DATA_LENGHTH];
+static uint8_t DIDRaw[RECEIVE_DATA_LENGHTH];
+
+struct TempReading TMP006_getTemp(void);
+double TMP006_calculateTemp(double * tDie, double * vObj);
+
+int16_t vObjVal = 0;
+int16_t tAmbVal = 0;
+long tAmbKVal = 0;
+void vObjConv(void) {
+    vObjVal = 0;
+    for (int i = 0; i<RECEIVE_DATA_LENGHTH; i++) {
+        vObjVal <<= 8;
+        vObjVal |= (int)vObjRaw[i];
+    }
+}
+void tAmbConv(void) {
+    tAmbVal=0;
+    for (int i = 0; i<RECEIVE_DATA_LENGHTH; i++) {
+        tAmbVal <<= 8;
+        tAmbVal |= (int)tAmbRaw[i];
+    }
+    tAmbKVal = tAmbVal + 273.15;
+}
 
 int getAbit(uint16_t x, int n) { // getbit()
   return (x & (1 << n)) >> n;
@@ -79,52 +102,23 @@ void binaryConv(uint16_t input) {
     }
 }
 
-void tObjTempPrint(void) {
-    uint16_t result = 0;
-    for (int i = 0; i<RECEIVE_DATA_LENGHTH; i++) {
-        result <<= 8;
-        result |= (int)tObjVal[i];
-       // result = (int)tObjVal;
-    }
-  printf("Tobj Temp : ");
-  binaryConv(result);
-  if  ( result >= 0x8000 ) {
-        result ^= 0xFFFF;
-        result += 1;
-        
-        result >>= 2;
-        //result *= (float)0.03125f;
-        //result = (float)result*(float)0.03125;
-        printf("==-%d  ",(int)(result/(float)31250.0));
-    } else {
-        result >>= 2;
-        result *= 0.03125f;
-        printf("==%d  ",(int)result);
-    }
+void vObjValPrint(void) {
+     printf("vObjVal : ");
+     
+     binaryConv(vObjVal);
+    printf("==%ld  ",vObjVal); 
+  
    // printf("\n");   
 }
 
-void tAmbTempPrint(void) {
+void tAmbValPrint(void) {
+    printf("tAmbVal : ");
+
+    tAmbVal >>= 2;
+    tAmbVal *= 0.03125f;
     
-    uint16_t result = 0;
-    for (int i = 0; i<RECEIVE_DATA_LENGHTH; i++) {
-        result <<= 8;
-        result |= (int)tAmbVal[i];
-    }
-    printf("Tamb Temp : ");
-    binaryConv(result);
-    if  ( result >= 0x8000 ) {
-        result ^= 0xFFFF;
-        result += 1;
-        
-        result >>= 2;
-        result *= 0.03125f;
-        printf("==-%d  ",(int)result);
-    } else {
-        result >>= 2;
-        result *= 0.03125f;
-        printf("==%d  ",(int)result);
-    }
+    binaryConv(tAmbVal);
+    printf("==%ld  ",tAmbVal);
     //printf("   %d+%d",(int)tAmbVal[0],(int)tAmbVal[1]);
     //printf("\n");   
 }
@@ -133,7 +127,7 @@ void ConfigPrint(void) {
     uint16_t result = 0;
     for (int i = 0; i<RECEIVE_DATA_LENGHTH; i++) {
         result <<= 8;
-        result |= ConfigVal[i];
+        result |= ConfigRaw[i];
     }
 
     printf("Configuration Reg. : ");
@@ -145,7 +139,7 @@ void MIDPrint(void) {
     uint16_t result = 0;
     for (int i = 0; i<RECEIVE_DATA_LENGHTH; i++) {
         result <<= 8;
-        result |= MIDVal[i];
+        result |= MIDRaw[i];
     }
 
     printf("Manufacturer ID : ");
@@ -157,12 +151,12 @@ void DIDPrint(void) {
     uint16_t result = 0;
     for (int i = 0; i<RECEIVE_DATA_LENGHTH; i++) {
         result <<= 8;
-        result |= DIDVal[i];
+        result |= DIDRaw[i];
     }
 
     printf("Device ID : ");
     binaryConv(result);
-    printf("==%d  \n",(int)result);    
+    printf("==%d  ",(int)result);    
 }
 
 /*
@@ -240,190 +234,154 @@ void APP_I2CCallback(uintptr_t context )
 // Section: Main Entry Point
 // *****************************************************************************
 // *****************************************************************************
-static void EIC_User_Handler(uintptr_t context);
-long temp = 0;
+
+//static void EIC_User_Handler(uintptr_t context);
+double temp = 0;
+#include <math.h>
+
+/*!
+ *
+ * Function to calulate and return the temperature and raw values from TMP006
+ * sensor with transient correction.
+ *
+ * @param None
+ *
+ * @return TempReading structure
+ * tempRead.temp = celsius
+ * tempRead.tDie = rawdata -> celsius = ((double)(tempRead.tDie >> 2)) * .03125
+ * C = (F - 32) / 1.8
+ * F = C * 1.8 + 32
+ *
+ */
+#if 1
+double tDie[4] = {0,0,};
+
+struct TempReading TMP006_getTemp(void)
+{
+  struct TempReading tempRead;
+  double vObjcorr = 0;
+  double tslope = 0;
+  double alpha = 2.96 * pow(10, -4);
+
+  /* Shift oldest tdie temp out */
+  tDie[0] = tDie[1];
+  tDie[1] = tDie[2];
+  tDie[2] = tDie[3];
+
+  /* Read the object voltage. Assuming that the data is ready. */
+  tempRead.vObj = 200;//vObjVal;
+  /* Read the ambient temperature */
+  tempRead.tDie = 3354;//tAmbVal;
+ //printf("Tobject == %d, Tambient == %d\r\n", vObjVal, tAmbVal);
+  /* Convert latest tDie measurement to Kelvin */
+  tDie[3] = (((double)(tempRead.tDie >> 2)) * .03125) + 273.15;
+
+  if(tDie[0] != 0)
+  {
+    /* Executes only if all 4 tdie variables are non-zero */
+
+    /* Calculate tslope */
+    tslope = -(0.3*tDie[0]) - (0.1*tDie[1]) + (0.1*tDie[2]) + (0.3*tDie[3]);
+
+    /* Correct sensor voltage */
+    vObjcorr = (((double)(tempRead.vObj)) * .00000015625) + (tslope * alpha);
+  }
+  else
+  {
+    /* Executes if all 4 tdie variables have not yet been filled */
+    vObjcorr = ((double)(tempRead.vObj)) * .00000015625;
+  }
+
+  tempRead.temp = TMP006_calculateTemp(&tDie[3], &vObjcorr);
+
+  return tempRead;
+}
+
+/*!
+ *
+ * Function to calulate temperature based on tdie and vobj
+ *
+ * @param tDie temperature of the die converted to Kelvin
+ * @param vObj object voltage converted first by multiplying 1.5625e-7
+ *
+ * @return temperature value in Celcius
+ *
+ */
+double TMP006_calculateTemp(double * tDie, double * vObj)
+{
+  /* Calculate TMP006. This needs to be reviewed and calibrated by TMP group */
+  double S0 = 6.0 * pow(10, -14);       /* Default S0 cal value */
+  double a1 = 1.75*pow(10, -3);
+  double a2 = -1.678*pow(10, -5);
+  double b0 = -2.94*pow(10, -5);
+  double b1 = -5.7*pow(10, -7);
+  double b2 = 4.63*pow(10, -9);
+
+  double c2 = 13.4;
+  double Tref = 298.15;
+  double S = S0*(1.0 + a1*(*tDie - Tref) + a2*pow((*tDie - Tref),2));
+  double Vos = b0 + b1*(*tDie - Tref) + b2*pow((*tDie - Tref),2);
+  double fObj = (*vObj - Vos) + c2*pow((*vObj - Vos),2);
+  double Tobj = pow(pow(*tDie,4) + (fObj/S),.25);
+
+  return (Tobj - 273.15);
+}
+#endif
+
+
+
+
+
 int main ( void )
 {
-    volatile APP_TRANSFER_STATUS transferStatus = APP_TRANSFER_STATUS_ERROR;
-    APP_STATES state = APP_STATE_EEPROM_WRITE;
-    //state = APP_STATE_EEPROM_STATUS_VERIFY;
-
-    uint8_t ackData = 1;
-    EIC_CallbackRegister(EIC_PIN_21,EIC_User_Handler, 0);
-
-    
+    int16_t Tobject, Tambient;
+    struct TempReading currTemp;
+//    EIC_CallbackRegister(EIC_PIN_21,EIC_User_Handler, 0);
     
     /* Initialize all modules */
     SYS_Initialize ( NULL );
+    SERCOM1_I2C_Write(TMR006_ADDR, &tmp006Init[0], INIT_DATA_LENGTH);
+
     printf("\r\n System Initialized \r\n");
+    while(1) {
+        SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[3], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &ConfigRaw[0], RECEIVE_DATA_LENGHTH);
+        if( getAbit(ConfigRaw[1],7) ) {
 
-    while ( true )
-    {
+            printf("\n");
+              
+              SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[2], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tAmbRaw[0], RECEIVE_DATA_LENGHTH);
+              tAmbConv();
+//              tAmbValPrint();
 
-        /* Check the application's current state. */
-        switch (state)
-        {
-            case APP_STATE_EEPROM_STATUS_VERIFY:
+              //SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[3], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &ConfigRaw[0], RECEIVE_DATA_LENGHTH);
+//              ConfigPrint();
 
-                /* Register the TWIHS Callback with transfer status as context */
-                SERCOM1_I2C_CallbackRegister( APP_I2CCallback, (uintptr_t)&transferStatus );
+              SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[4], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &MIDRaw[0], RECEIVE_DATA_LENGHTH);
+//              MIDPrint();
 
-                SERCOM1_I2C_Write(TMR006_ADDR, &ackData, APP_ACK_DATA_LENGTH);
-                
-               /* Verify if EEPROM is ready to accept new requests */
-                transferStatus = APP_TRANSFER_STATUS_SUCCESS;
-                state = APP_STATE_EEPROM_WRITE;
-                break;
+              SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[5], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &DIDRaw[0], RECEIVE_DATA_LENGHTH);
+//              DIDPrint();
 
-            case APP_STATE_EEPROM_WRITE:
+              SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[1], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &vObjRaw[0], RECEIVE_DATA_LENGHTH);
+              vObjConv();
+//              vObjValPrint();   
+              
+               currTemp = TMP006_getTemp();
+               Tobject = (int16_t)(currTemp.temp*10.0);
+               Tambient = (int16_t)(((double)(currTemp.tDie >> 2)) * .03125);  
+               
+               printf("Tobject == %d, Tambient == %d\r\n", Tobject, Tambient);
+               
+              //temp = (int)( tmp006_getTemp(vObjVal, tAmbVal).temp );
+              //temp = tmp006_calculateTemp(tAmbVal, vObjVal);
+              //temp = calculateTobj(vObjVal, tAmbVal);
+              
+              
+  //            printf("==%f", temp);
 
-                if (transferStatus == APP_TRANSFER_STATUS_SUCCESS)
-                {
-                    /* Write data to EEPROM */
-                    LED_ON();
-                    transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                    //SERCOM1_I2C_Write(TMR006_ADDR, &tmp006Init[0], INIT_DATA_LENGTH);
-                    SERCOM1_I2C_WriteRead(TMR006_ADDR, &tmp006Init[0], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tmp006Init[1], 2);
-                
-                    LED_OFF();
-
-                    transferStatus = APP_TRANSFER_STATUS_SUCCESS;
-                    state = APP_STATE_EEPROM_READ;
-                }
-                else if (transferStatus == APP_TRANSFER_STATUS_ERROR)
-                {
-                    /* EEPROM is not ready to accept new requests. 
-                     * Keep checking until the EEPROM becomes ready. */
-                    state = APP_STATE_EEPROM_STATUS_VERIFY;
-                }
-                break;
-
-            case APP_STATE_EEPROM_WAIT_WRITE_COMPLETE:
-
-                if (transferStatus == APP_TRANSFER_STATUS_SUCCESS)
-                {
-                    /* Read the status of internal write cycle */
-                    transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                    SERCOM1_I2C_Write(TMR006_ADDR, &ackData, APP_ACK_DATA_LENGTH);
-                    state = APP_STATE_EEPROM_CHECK_INTERNAL_WRITE_STATUS;
-                }
-                else if (transferStatus == APP_TRANSFER_STATUS_ERROR)
-                {
-                    state = APP_STATE_XFER_ERROR;
-                }
-                break;
-
-             case APP_STATE_EEPROM_CHECK_INTERNAL_WRITE_STATUS:
-
-                if (transferStatus == APP_TRANSFER_STATUS_SUCCESS)
-                {
-                    state = APP_STATE_EEPROM_READ;
-                }
-                else if (transferStatus == APP_TRANSFER_STATUS_ERROR)
-                {
-                    /* EEPROM's internal write cycle is not complete. Keep checking. */
-                    transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                    SERCOM1_I2C_Write(TMR006_ADDR, &ackData, APP_ACK_DATA_LENGTH);
-                }
-                break;
-
-            case APP_STATE_EEPROM_READ:
-
-                transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                
-                    EIC_User_Handler(0);
-
-                              
-          /*      
-                state = APP_STATE_EEPROM_WAIT_READ_COMPLETE;
-                temp = tDieVal[0];
-                temp <<= 8;
-                temp += tDieVal[1];
-                temp *= 0.03125f;                     
-                printf(" %ld", temp );
-           */     
-                
-                /* Read the data from the page written earlier */
-          /*     SERCOM1_I2C_Write(TMR006_ADDR, &ackData, APP_ACK_DATA_LENGTH);
-               SERCOM1_I2C_Write(TMR006_Tamb_ADDR, &ackData, APP_ACK_DATA_LENGTH);
-               SERCOM1_I2C_Write(TMR006_ADDR, &ackData, APP_ACK_DATA_LENGTH);
-               SERCOM1_I2C_Read(tDieVal[0], &ackData, TEMP_RECEIVE_DATA_LENGHTH);
-               SERCOM1_I2C_Read(tDieVal[1], &ackData, TEMP_RECEIVE_DATA_LENGHTH);
-
-               SERCOM1_I2C_WriteRead(TMR006_ADDR, &tDieLoad[0], APP_RECEIVE_DUMMY_WRITE_LENGTH, &tDieVal[0], TEMP_RECEIVE_DATA_LENGHTH);
-               tDieTempPrint();
-               //printf("\r\n read sentence running \r\n");
-               //printf("%d",temp);
-               //putchar((unsigned char)temp);
-              */
-               state = APP_STATE_EEPROM_WAIT_READ_COMPLETE;
-               transferStatus = APP_TRANSFER_STATUS_SUCCESS;
-               break;
-
-            case APP_STATE_EEPROM_WAIT_READ_COMPLETE:
-
-                if (transferStatus == APP_TRANSFER_STATUS_SUCCESS)
-                {
-                    state = APP_STATE_VERIFY;
-                }
-                else if (transferStatus == APP_TRANSFER_STATUS_ERROR)
-                {
-                    state = APP_STATE_XFER_ERROR;
-                }
-                break;
-
-            case APP_STATE_VERIFY:
-
-                if (memcmp(&tmp006Init[1], &tmp006Init[0], APP_RECEIVE_DATA_LENGTH) != 0 )
-                {
-                    /* It means received data is not same as transmitted data */
-                    state = APP_STATE_XFER_ERROR;
-                }
-                else
-                {
-                    /* It means received data is same as transmitted data */
-                    state = APP_STATE_XFER_SUCCESSFUL;
-                }
-                break;
-
-            case APP_STATE_XFER_SUCCESSFUL:
-            {
-                //LED_ON();
-                LED_OFF();
-                break;
-            }
-            case APP_STATE_XFER_ERROR:
-            {
-                //LED_OFF();
-                LED_ON();
-                break;
-            }
-            default:
-                break;
-            }
-
+          }
+      
     }
+    
 }
 
-static void EIC_User_Handler(uintptr_t context)
-{
-    LED_Toggle();
-                    
-                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[2], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tAmbVal[0], RECEIVE_DATA_LENGHTH);
-                tAmbTempPrint();
-                
-                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[3], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &ConfigVal[0], RECEIVE_DATA_LENGHTH);
-                ConfigPrint();
-                
-                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[4], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &MIDVal[0], RECEIVE_DATA_LENGHTH);
-                MIDPrint();
-                
-                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[5], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &DIDVal[0], RECEIVE_DATA_LENGHTH);
-                DIDPrint();
-                
-                SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[1], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tObjVal[0], RECEIVE_DATA_LENGHTH);
-                tObjTempPrint();
-}
-/*******************************************************************************
- End of File
-*/

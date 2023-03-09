@@ -99,7 +99,7 @@ build/sam_l10_xpro/production/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/sam_l10_xpro/configuration.h \
  ../src/config/sam_l10_xpro/osal/osal_definitions.h \
  ../src/config/sam_l10_xpro/osal/osal_impl_basic.h \
- ../src/config/sam_l10_xpro/bsp/bsp.h
+ ../src/config/sam_l10_xpro/bsp/bsp.h ../src/tmp006.h
 
 ../src/config/sam_l10_xpro/definitions.h:
 
@@ -302,3 +302,5 @@ build/sam_l10_xpro/production/_ext/1360937237/main.o: ../src/main.c \
 ../src/config/sam_l10_xpro/osal/osal_impl_basic.h:
 
 ../src/config/sam_l10_xpro/bsp/bsp.h:
+
+../src/tmp006.h:
