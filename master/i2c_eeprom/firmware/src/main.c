@@ -244,9 +244,9 @@ static void EIC_User_Handler(uintptr_t context);
 long temp = 0;
 int main ( void )
 {
-    APP_STATES state = APP_STATE_EEPROM_STATUS_VERIFY;
     volatile APP_TRANSFER_STATUS transferStatus = APP_TRANSFER_STATUS_ERROR;
-    state = APP_STATE_EEPROM_WRITE;
+    APP_STATES state = APP_STATE_EEPROM_WRITE;
+    //state = APP_STATE_EEPROM_STATUS_VERIFY;
 
     uint8_t ackData = 1;
     EIC_CallbackRegister(EIC_PIN_21,EIC_User_Handler, 0);
@@ -268,10 +268,10 @@ int main ( void )
                 /* Register the TWIHS Callback with transfer status as context */
                 SERCOM1_I2C_CallbackRegister( APP_I2CCallback, (uintptr_t)&transferStatus );
 
+                SERCOM1_I2C_Write(TMR006_ADDR, &ackData, APP_ACK_DATA_LENGTH);
+                
                /* Verify if EEPROM is ready to accept new requests */
                 transferStatus = APP_TRANSFER_STATUS_SUCCESS;
-                SERCOM1_I2C_Write(TMR006_ADDR, &ackData, APP_ACK_DATA_LENGTH);
-
                 state = APP_STATE_EEPROM_WRITE;
                 break;
 
@@ -280,10 +280,15 @@ int main ( void )
                 if (transferStatus == APP_TRANSFER_STATUS_SUCCESS)
                 {
                     /* Write data to EEPROM */
+                    LED_ON();
                     transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                    SERCOM1_I2C_Write(TMR006_ADDR, &tmp006Init[0], INIT_DATA_LENGTH);
+                    //SERCOM1_I2C_Write(TMR006_ADDR, &tmp006Init[0], INIT_DATA_LENGTH);
+                    SERCOM1_I2C_WriteRead(TMR006_ADDR, &tmp006Init[0], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tmp006Init[1], 2);
+                
+                    LED_OFF();
 
-                    state = APP_STATE_EEPROM_WAIT_WRITE_COMPLETE;
+                    transferStatus = APP_TRANSFER_STATUS_SUCCESS;
+                    state = APP_STATE_EEPROM_READ;
                 }
                 else if (transferStatus == APP_TRANSFER_STATUS_ERROR)
                 {
@@ -326,7 +331,7 @@ int main ( void )
 
                 transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
                 
-                    //EIC_User_Handler(0);
+                    EIC_User_Handler(0);
 
                               
           /*      
@@ -352,6 +357,7 @@ int main ( void )
                //putchar((unsigned char)temp);
               */
                state = APP_STATE_EEPROM_WAIT_READ_COMPLETE;
+               transferStatus = APP_TRANSFER_STATUS_SUCCESS;
                break;
 
             case APP_STATE_EEPROM_WAIT_READ_COMPLETE:
@@ -368,7 +374,7 @@ int main ( void )
 
             case APP_STATE_VERIFY:
 
-                if (memcmp(&tmp006Init[2], &tmp006Init[0], APP_RECEIVE_DATA_LENGTH) != 0 )
+                if (memcmp(&tmp006Init[1], &tmp006Init[0], APP_RECEIVE_DATA_LENGTH) != 0 )
                 {
                     /* It means received data is not same as transmitted data */
                     state = APP_STATE_XFER_ERROR;
@@ -382,19 +388,20 @@ int main ( void )
 
             case APP_STATE_XFER_SUCCESSFUL:
             {
-                LED_ON();
+                //LED_ON();
+                LED_OFF();
                 break;
             }
             case APP_STATE_XFER_ERROR:
             {
-                LED_OFF();
+                //LED_OFF();
+                LED_ON();
                 break;
             }
             default:
                 break;
             }
-            state = APP_STATE_EEPROM_READ;
-        
+
     }
 }
 

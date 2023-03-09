@@ -91,12 +91,8 @@ void EIC_Initialize (void)
         | EIC_CONFIG_SENSE6_NONE 
         | EIC_CONFIG_SENSE7_NONE ;
 
-    /* External Interrupt Asynchronous Mode enable */
-    EIC_REGS->EIC_ASYNCH = 0x2;
 
 
-    /* Event Control Output enable */
-    EIC_REGS->EIC_EVCTRL = 0x2;
 
 
     /* External Interrupt enable*/
