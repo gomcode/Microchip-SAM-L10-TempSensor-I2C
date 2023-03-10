@@ -106,7 +106,7 @@ void vObjValPrint(void) {
      printf("vObjVal : ");
      
      binaryConv(vObjVal);
-    printf("==%ld  ",vObjVal); 
+    printf("==%d  ",vObjVal); 
   
    // printf("\n");   
 }
@@ -118,7 +118,7 @@ void tAmbValPrint(void) {
     tAmbVal *= 0.03125f;
     
     binaryConv(tAmbVal);
-    printf("==%ld  ",tAmbVal);
+    printf("==%d  ",tAmbVal);
     //printf("   %d+%d",(int)tAmbVal[0],(int)tAmbVal[1]);
     //printf("\n");   
 }
@@ -269,9 +269,9 @@ struct TempReading TMP006_getTemp(void)
   tDie[2] = tDie[3];
 
   /* Read the object voltage. Assuming that the data is ready. */
-  tempRead.vObj = 200;//vObjVal;
+  tempRead.vObj = vObjVal;//vObjVal;
   /* Read the ambient temperature */
-  tempRead.tDie = 3354;//tAmbVal;
+  tempRead.tDie = tAmbVal;//tAmbVal;
  //printf("Tobject == %d, Tambient == %d\r\n", vObjVal, tAmbVal);
   /* Convert latest tDie measurement to Kelvin */
   tDie[3] = (((double)(tempRead.tDie >> 2)) * .03125) + 273.15;
@@ -329,8 +329,7 @@ double TMP006_calculateTemp(double * tDie, double * vObj)
 #endif
 
 
-
-
+bool isInt = false;
 
 int main ( void )
 {
@@ -346,28 +345,29 @@ int main ( void )
     while(1) {
         SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[3], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &ConfigRaw[0], RECEIVE_DATA_LENGHTH);
         if( getAbit(ConfigRaw[1],7) ) {
+              if ( isInt == false ) {
+                  printf("\n");
+                  
+                  SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[3], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &ConfigRaw[0], RECEIVE_DATA_LENGHTH);
+                  ConfigPrint();
 
-            printf("\n");
-              
-              SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[2], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tAmbRaw[0], RECEIVE_DATA_LENGHTH);
-              tAmbConv();
-//              tAmbValPrint();
+                  SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[4], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &MIDRaw[0], RECEIVE_DATA_LENGHTH);
+                  MIDPrint();
 
-              //SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[3], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &ConfigRaw[0], RECEIVE_DATA_LENGHTH);
-//              ConfigPrint();
+                  SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[5], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &DIDRaw[0], RECEIVE_DATA_LENGHTH);
+                  DIDPrint();
 
-              SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[4], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &MIDRaw[0], RECEIVE_DATA_LENGHTH);
-//              MIDPrint();
+                  SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[2], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &tAmbRaw[0], RECEIVE_DATA_LENGHTH);
+                  tAmbConv();
+                  tAmbValPrint();
 
-              SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[5], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &DIDRaw[0], RECEIVE_DATA_LENGHTH);
-//              DIDPrint();
-
-              SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[1], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &vObjRaw[0], RECEIVE_DATA_LENGHTH);
-              vObjConv();
-//              vObjValPrint();   
+                  SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[1], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &vObjRaw[0], RECEIVE_DATA_LENGHTH);
+                  vObjConv();
+                  vObjValPrint();   
+                  printf("\n");
               
                currTemp = TMP006_getTemp();
-               Tobject = (int16_t)(currTemp.temp*10.0);
+               Tobject = (int16_t)(currTemp.temp*1.0);
                Tambient = (int16_t)(((double)(currTemp.tDie >> 2)) * .03125);  
                
                printf("Tobject == %d, Tambient == %d\r\n", Tobject, Tambient);
@@ -379,9 +379,10 @@ int main ( void )
               
   //            printf("==%f", temp);
 
+                  isInt = true;
+              }
           }
-      
+        isInt = false;
     }
-    
 }
 
