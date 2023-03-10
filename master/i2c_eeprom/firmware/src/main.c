@@ -69,6 +69,7 @@ static uint8_t ConfigRaw[RECEIVE_DATA_LENGHTH];
 static uint8_t MIDRaw[RECEIVE_DATA_LENGHTH];
 static uint8_t DIDRaw[RECEIVE_DATA_LENGHTH];
 
+int16_t Vobj_raw = 0, Tamb_raw = 0;
 struct TempReading TMP006_getTemp(void);
 double TMP006_calculateTemp(double * tDie, double * vObj);
 
@@ -269,9 +270,9 @@ struct TempReading TMP006_getTemp(void)
   tDie[2] = tDie[3];
 
   /* Read the object voltage. Assuming that the data is ready. */
-  tempRead.vObj = vObjVal;//vObjVal;
+  tempRead.vObj = Vobj_raw;//289;//vObjVal;//vObjVal;
   /* Read the ambient temperature */
-  tempRead.tDie = tAmbVal;//tAmbVal;
+  tempRead.tDie = Tamb_raw;//3354;//tAmbVal;//tAmbVal;
  //printf("Tobject == %d, Tambient == %d\r\n", vObjVal, tAmbVal);
   /* Convert latest tDie measurement to Kelvin */
   tDie[3] = (((double)(tempRead.tDie >> 2)) * .03125) + 273.15;
@@ -328,12 +329,26 @@ double TMP006_calculateTemp(double * tDie, double * vObj)
 }
 #endif
 
+int32_t TwosComplementConverterInt32(uint32_t input, uint8_t bitLength)
+{
+  /* 22-bit left-justified two's complement to a signed long */
+
+  int32_t output = (input & 0xFFFFFF);
+
+  if ( input & (0x01 << (bitLength-1) ) )	// 0x200000
+  {
+    output |= (-1 << bitLength);		// 0x400000
+  }
+
+  return output;
+}
 
 bool isInt = false;
 
 int main ( void )
 {
     int16_t Tobject, Tambient;
+    
     struct TempReading currTemp;
 //    EIC_CallbackRegister(EIC_PIN_21,EIC_User_Handler, 0);
     
@@ -364,11 +379,17 @@ int main ( void )
                   SERCOM1_I2C_WriteRead(TMR006_ADDR, &TMP006Load[1], APP_RECEIVE_DUMMY_WRITE_LENGTH,  &vObjRaw[0], RECEIVE_DATA_LENGHTH);
                   vObjConv();
                   vObjValPrint();   
+                  
+                  Tamb_raw = (tAmbRaw[0] << 8) + tAmbRaw[1];
+                  Vobj_raw = (vObjRaw[0] << 8) + vObjRaw[1];
                   printf("\n");
               
                currTemp = TMP006_getTemp();
                Tobject = (int16_t)(currTemp.temp*1.0);
                Tambient = (int16_t)(((double)(currTemp.tDie >> 2)) * .03125);  
+               
+               Tobject = TwosComplementConverterInt32(Tobject, 14);
+                Tambient = TwosComplementConverterInt32(Tambient, 14); 
                
                printf("Tobject == %d, Tambient == %d\r\n", Tobject, Tambient);
                

@@ -81,13 +81,13 @@ extern "C"
 struct TempReading
 {
     /*! Calculated temperature reading */
-    long double temp;
+    double temp;
 
     /*! Stores the current object voltage */
-    int vObj;
+    int16_t vObj;
 
     /*! Stores the current ambient temperature */
-    int tDie;
+    int16_t tDie;
 };
 
 void tmp006_init(unsigned char drdyPinEn, unsigned int conversionTime);
